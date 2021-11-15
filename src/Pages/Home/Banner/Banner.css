@@ -1,0 +1,31 @@
+.banner-container {
+    background-image: url(https://i.ibb.co/12CmYgH/Bleude-Chanel2015-large-e1423388162430.jpg);
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    min-height: 740px;
+}
+
+.banner-container:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.banner-container h1 {
+    z-index: 1;
+    margin-left: 5%;
+    color: #fff;
+    padding-top: 7%;
+}
+
+.banner-container h5 {
+    z-index: 1;
+    margin-left: 5%;
+    color: #fff;
+    padding-top: 10px;
+}

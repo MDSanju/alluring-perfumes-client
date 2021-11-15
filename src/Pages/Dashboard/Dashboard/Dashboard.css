@@ -1,0 +1,27 @@
+.menu-icon {
+    color: #ffffff;
+    font-size: 35px;
+    transition: .2s ease;
+}
+
+.menu-icon:hover {
+    background-color: #6c92fca3;
+    border-radius: 100px;
+}
+
+.nav-btn {
+    color: dimgray;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+.nav-btn:hover {
+    color: black;
+}
+
+.icons {
+    color: dimgray;
+    font-size: 25px;
+    font-weight: 600;
+}

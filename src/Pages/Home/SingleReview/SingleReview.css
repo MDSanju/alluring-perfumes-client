@@ -1,0 +1,22 @@
+.review-section {
+    display: flex;
+}
+
+.profile-pic {
+    width: 115px;
+    height: 115px;
+    border: none;
+    margin-top: 45px;
+}
+
+.reviews {
+    margin-top: 45px;
+}
+
+.full-symbol-color {
+    color: #ffc107;
+}
+
+.empty-symbol-color {
+    color: #e4e5e9;
+}

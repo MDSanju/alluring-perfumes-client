@@ -1,0 +1,40 @@
+.product-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-img {
+    width: 50%;
+    height: 300px;
+}
+
+@media screen and (max-width: 992px) {
+    .product-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .product-img {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-img {
+        height: 240px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 521px) {
+    .product-img {
+        height: 200px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 454px) {
+    .product-img {
+        height: 140px;
+        margin-bottom: 30px;
+    }
+}
