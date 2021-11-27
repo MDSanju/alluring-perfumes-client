@@ -1,6 +1,6 @@
 # Alluring Perfumes
 
-This website about a Perfume selling: [website_link](https://alluring-perfumes.web.app/).
+This is a niche perfume website: [website_link](https://alluring-perfumes.web.app/).
 
 ## About This Website
 
