@@ -59,7 +59,7 @@ const AddProduct = () => {
           <textarea
             type="text"
             className="form-control mt-3"
-            style={{ height: "100px" }}
+            style={{ width: "100%", height: "100px" }}
             placeholder="Description..."
             required
             {...register("description")}
