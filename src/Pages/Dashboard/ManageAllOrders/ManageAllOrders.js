@@ -57,13 +57,17 @@ const ManageAllOrders = () => {
                     <td data-title="Product">{allOrder.productName}</td>
                     <td data-title="Status">{allOrder.status}</td>
                     <td data-title="Shipped">
-                      <button
-                        onClick={() => handleUpdateStatus(allOrder._id)}
-                        className="btn btn-outline-dark btn-sm"
-                        style={{ width: "65px" }}
-                      >
-                        {allOrder.status === "Shipped" ? "Done" : "Update"}
-                      </button>
+                      {allOrder.status === "Shipped" ? (
+                        "Updated"
+                      ) : (
+                        <button
+                          onClick={() => handleUpdateStatus(allOrder._id)}
+                          className="btn btn-outline-dark btn-sm"
+                          style={{ width: "65px" }}
+                        >
+                          Update
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}

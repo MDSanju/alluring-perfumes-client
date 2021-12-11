@@ -3,8 +3,9 @@
 }
 
 .profile-pic {
-    width: 115px;
-    height: 115px;
+    background-color: #e4e5e9;
+    width: 112px;
+    height: 112px;
     border: none;
     margin-top: 45px;
 }

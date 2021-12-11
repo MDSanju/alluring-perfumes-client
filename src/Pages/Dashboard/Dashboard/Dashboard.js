@@ -49,8 +49,8 @@ const Dashboard = () => {
             <BiMenu
               className="menu-icon me-3"
               data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasScrolling"
-              aria-controls="offcanvasScrolling"
+              data-bs-target="#offcanvasWithBackdrop"
+              aria-controls="offcanvasWithBackdrop"
             ></BiMenu>
             Dashboard
           </span>
@@ -71,11 +71,9 @@ const Dashboard = () => {
 
       <div
         className="offcanvas offcanvas-start"
-        data-bs-scroll="true"
-        data-bs-backdrop="false"
         tabIndex="-1"
-        id="offcanvasScrolling"
-        aria-labelledby="offcanvasScrollingLabel"
+        id="offcanvasWithBackdrop"
+        aria-labelledby="offcanvasWithBackdropLabel"
         style={{ width: "320px" }}
       >
         <div className="offcanvas-header">

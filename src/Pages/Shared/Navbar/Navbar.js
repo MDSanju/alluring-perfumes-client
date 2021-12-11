@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Navbar.css";
 
@@ -13,7 +13,17 @@ const Navbar = () => {
             className="navbar-text h2 fw-bold"
             style={{ cursor: "pointer", color: "#2c2c54" }}
           >
-            Alluring Perfumes
+            <Link
+              to="/"
+              className="navbar-text h2 fw-bold"
+              style={{
+                cursor: "pointer",
+                color: "#2c2c54",
+                textDecoration: "none",
+              }}
+            >
+              Alluring Perfumes
+            </Link>
           </span>
           <button
             className="navbar-toggler"
@@ -27,36 +37,43 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div
-            className="collapse navbar-collapse navlink-custom"
-            id="navbarNavAltMarkup"
-          >
-            <div className="navbar-nav">
-              <NavLink
-                className="nav-link fw-bold mx-2"
-                aria-current="page"
-                to="/home"
-              >
-                Home
-              </NavLink>
-              <NavLink className="nav-link fw-bold mx-2" to="/explore">
-                Explore
-              </NavLink>
-              {user.email && (
-                <NavLink className="nav-link fw-bold mx-2" to="/dashboard">
-                  Dashboard
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul className="navbar-nav w-100 d-flex justify-content-end">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link fw-bold mx-2"
+                  aria-current="page"
+                  to="/home"
+                >
+                  Home
                 </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link fw-bold mx-2" to="/explore">
+                  Explore
+                </NavLink>
+              </li>
+              {user.email && (
+                <li className="nav-item">
+                  <NavLink className="nav-link fw-bold mx-2" to="/dashboard">
+                    Dashboard
+                  </NavLink>
+                </li>
               )}
               {user.email ? (
-                <button onClick={logout} className="btn btn-outline-dark">
-                  Logout
-                </button>
+                <li className="nav-item">
+                  <button onClick={logout} className="btn btn-outline-dark">
+                    Logout
+                  </button>
+                </li>
               ) : (
-                <NavLink className="nav-link fw-bold mx-2" to="/login">
-                  Login
-                </NavLink>
+                <li className="nav-item">
+                  <NavLink className="nav-link fw-bold mx-2" to="/login">
+                    Login
+                  </NavLink>
+                </li>
               )}
-            </div>
+            </ul>
           </div>
         </div>
       </nav>
