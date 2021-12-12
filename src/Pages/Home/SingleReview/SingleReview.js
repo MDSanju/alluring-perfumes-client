@@ -11,7 +11,7 @@ const SingleReview = (props) => {
     <div className="review-section">
       <div>
         <button className="profile-pic">
-          <h3>{profilePic}</h3>
+          <h3 style={{ fontSize: "2.6rem" }}>{profilePic}</h3>
         </button>
       </div>
       <div className="col-7 col-sm-8 col-md-8 mx-4 reviews">
