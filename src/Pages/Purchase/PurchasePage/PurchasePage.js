@@ -19,6 +19,15 @@ const PurchasePage = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    const submitOrder = {
+      displayName: user.displayName,
+      email: user.email,
+      status: status,
+      productName: product.name,
+      address: data.address,
+      phone: data.phone,
+    };
+
     const proceed = window.confirm("Please confirm to Purchase!");
     if (proceed) {
       fetch("https://mysterious-brook-12035.herokuapp.com/orders", {
@@ -26,7 +35,7 @@ const PurchasePage = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submitOrder),
       })
         .then((res) => res.json())
         .then((result) => {
@@ -50,43 +59,14 @@ const PurchasePage = () => {
       <br />
       <br />
       <hr />
+      <br />
       <div
         className="d-flex justify-content-center"
-        style={{ marginTop: "35px", marginBottom: "125px" }}
+        style={{ marginBottom: "125px" }}
       >
-        <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-          <h2 className="fw-bold text-center mb-5">Purchase Now!</h2>
+        <div className="form-floating mb-3 mt-4 col-10 col-sm-10 col-md-5">
+          <h2 className="fw-bold text-center mb-4">Purchase Now!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              defaultValue={user.displayName}
-              {...register("displayName")}
-            />
-
-            <input
-              type="email"
-              className="form-control mt-3"
-              id="floatingInput"
-              defaultValue={user.email}
-              {...register("email")}
-            />
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              defaultValue={status}
-              {...register("status")}
-            />
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              placeholder="Copy the perfume name above and paste on here"
-              {...register("productName")}
-              required
-            />
             <input
               type="text"
               className="form-control mt-3"
@@ -104,16 +84,9 @@ const PurchasePage = () => {
               required
             />
             <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              placeholder="Use Coupon Code (If you have)"
-              {...register("couponCode")}
-            />
-            <input
               type="submit"
               className="btn btn-primary w-100 mt-3"
-              value="Buy Now"
+              value="Place Order"
             />
           </form>
         </div>

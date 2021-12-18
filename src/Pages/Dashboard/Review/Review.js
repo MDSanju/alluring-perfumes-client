@@ -11,12 +11,19 @@ const Review = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    const userFeedback = {
+      displayName: user.displayName,
+      email: user.email,
+      review: data.review,
+      rating: data.rating,
+    };
+
     fetch("https://mysterious-brook-12035.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(userFeedback),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -28,28 +35,12 @@ const Review = () => {
 
   return (
     <div
-      className="d-flex justify-content-center"
-      style={{ marginTop: "50px", marginBottom: "150px" }}
+      className="d-flex justify-content-center mt-5"
+      style={{ height: "100vh" }}
     >
       <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="fw-bold text-center mb-5">Add A Review!</h2>
+        <h2 className="fw-bold text-center mb-4">Add A Review!</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            className="form-control mt-3"
-            id="floatingInput"
-            defaultValue={user.displayName}
-            {...register("displayName")}
-          />
-
-          <input
-            type="email"
-            className="form-control mt-3"
-            id="floatingInput"
-            defaultValue={user.email}
-            {...register("email")}
-          />
-
           <textarea
             type="text"
             className="form-control mt-3 mb-3"

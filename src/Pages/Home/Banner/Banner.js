@@ -22,7 +22,7 @@ const Banner = () => {
         <div style={{ textAlign: "center" }}>
           <h1>The Power Of Fragrant Attraction!</h1>
           <h5>Makes you more confident.</h5>
-          <button onClick={goToExplore} className="btn btn-info mt-3">
+          <button onClick={goToExplore} className="btn btn-danger mt-3">
             Explore
           </button>
         </div>
