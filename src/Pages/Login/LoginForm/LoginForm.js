@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useLocation } from "react-router";
 import useAuth from "../../../hooks/useAuth";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const LoginForm = () => {
   const { isLoading, authError, userLogin } = useAuth();
@@ -27,7 +28,9 @@ const LoginForm = () => {
       style={{ marginTop: "50px", marginBottom: "150px" }}
     >
       <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="fw-bold text-center mb-5">Please Login!</h2>
+        <h2 className="fw-bold text-center mb-5" style={{ color: "#333f47" }}>
+          Please Login!
+        </h2>
         {!isLoading && (
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
@@ -80,10 +83,14 @@ const LoginForm = () => {
           </form>
         )}
         {isLoading && (
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "38px",
+            }}
+          >
+            <ScaleLoader color={"#003665"} size={85} />
           </div>
         )}
       </div>

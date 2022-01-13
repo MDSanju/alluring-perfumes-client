@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import ScaleLoader from "react-spinners/ScaleLoader";
+
 // manage all orders for admin
 const ManageAllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
   const history = useHistory();
 
   useEffect(() => {
-    setIsLoading(true);
     fetch("https://mysterious-brook-12035.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
-    setIsLoading(false);
   }, []);
 
   const handleUpdateStatus = (id) => {
@@ -38,7 +38,7 @@ const ManageAllOrders = () => {
         Placed by Customers!
       </h2>
 
-      {!isLoading && (
+      {allOrders.length && (
         <div className="bg-light p-5">
           <div className="table-responsive" id="table-off">
             <table className="table bg-white">
@@ -76,14 +76,15 @@ const ManageAllOrders = () => {
           </div>
         </div>
       )}
-      {isLoading && (
+      {!allOrders.length && (
         <div
-          className="d-flex justify-content-center"
-          style={{ marginTop: "25vh" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "38px",
+          }}
         >
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+          <ScaleLoader color={"#003665"} size={85} />
         </div>
       )}
     </div>

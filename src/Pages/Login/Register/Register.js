@@ -6,6 +6,7 @@ import RegisterForm from "../RegisterForm/RegisterForm";
 const Register = () => {
   return (
     <div>
+      <title>Register || Alluring Perfumes</title>
       <Navbar></Navbar>
       <RegisterForm></RegisterForm>
       <Footer></Footer>

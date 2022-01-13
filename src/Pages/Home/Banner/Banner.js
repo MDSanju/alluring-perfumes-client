@@ -16,13 +16,14 @@ const Banner = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "620px",
+          height: "100vh",
+          background: "rgba(18, 18, 18, .8)",
         }}
       >
         <div style={{ textAlign: "center" }}>
           <h1>The Power Of Fragrant Attraction!</h1>
           <h5>Makes you more confident.</h5>
-          <button onClick={goToExplore} className="btn btn-danger mt-3">
+          <button onClick={goToExplore} className="btn btn-outline-light mt-3">
             Explore
           </button>
         </div>

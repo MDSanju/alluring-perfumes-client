@@ -11,14 +11,14 @@ const Navbar = () => {
         <div className="container">
           <span
             className="navbar-text h2 fw-bold"
-            style={{ cursor: "pointer", color: "#2c2c54" }}
+            style={{ cursor: "pointer", color: "#333f47" }}
           >
             <Link
               to="/"
               className="navbar-text h2 fw-bold"
               style={{
                 cursor: "pointer",
-                color: "#2c2c54",
+                color: "#333f47",
                 textDecoration: "none",
               }}
             >

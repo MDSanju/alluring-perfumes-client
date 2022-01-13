@@ -1,18 +1,20 @@
 import React from "react";
 import { Redirect, Route } from "react-router";
 import useAuth from "../../../hooks/useAuth";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 const AdminRoute = ({ children, ...rest }) => {
   const { user, admin, reload, isLoading } = useAuth();
   if (isLoading && reload) {
     return (
       <div
-        className="d-flex justify-content-center"
-        style={{ marginTop: "35vh" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "38vh",
+        }}
       >
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+        <ScaleLoader color={"#003665"} size={85} />
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./AddProduct.css";
+
 // add product page
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -29,7 +31,9 @@ const AddProduct = () => {
       style={{ marginTop: "50px", marginBottom: "150px" }}
     >
       <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="fw-bold text-center mb-5">Add A New Product!</h2>
+        <h2 className="fw-bold text-center mb-5 add-new-product-title">
+          Add A New Product!
+        </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"

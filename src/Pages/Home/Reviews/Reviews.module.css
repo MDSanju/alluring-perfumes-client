@@ -1,0 +1,27 @@
+.review_title {
+    font-size: 3.4rem;
+}
+
+@media screen and (max-width: 992px) {
+    .review_title {
+        font-size: 2.8rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .review_title {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .review_title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .review_title {
+        font-size: 1.8rem;
+    }
+}

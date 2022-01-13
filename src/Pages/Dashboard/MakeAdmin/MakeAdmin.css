@@ -1,0 +1,16 @@
+.make-admin-input-title {
+    color: #333f47;
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 450px) {
+    .make-admin-input-title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .make-admin-input-title {
+        font-size: 1.6rem;
+    }
+}

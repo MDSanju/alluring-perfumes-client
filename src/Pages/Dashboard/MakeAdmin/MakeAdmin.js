@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./MakeAdmin.css";
+
 // make admin page for admin
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -32,7 +34,7 @@ const MakeAdmin = () => {
       style={{ marginTop: "50px", marginBottom: "150px" }}
     >
       <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="text-dark text-center fw-bold mb-5">
+        <h2 className="text-center fw-bold mb-5 make-admin-input-title">
           Make a new Admin!
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>

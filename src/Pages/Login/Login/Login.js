@@ -6,6 +6,7 @@ import LoginForm from "../LoginForm/LoginForm";
 const Login = () => {
   return (
     <div>
+      <title>Login || Alluring Perfumes</title>
       <Navbar></Navbar>
       <LoginForm></LoginForm>
       <Footer></Footer>

@@ -9,6 +9,7 @@ import {
   BiUserCheck,
   BiCustomize,
 } from "react-icons/bi";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
 import "./Dashboard.css";
@@ -40,6 +41,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <title>Dashboard || Alluring Perfumes</title>
       <nav className="navbar navbar-primary bg-primary text-white">
         <div className="container">
           <span
@@ -97,6 +99,16 @@ const Dashboard = () => {
             <Link
               className="nav-link active d-flex align-items-center"
               aria-current="page"
+              to={`${url}`}
+            >
+              <i className="icons mb-1 me-3">
+                <MdOutlineAdminPanelSettings />
+              </i>
+              <span className="nav-btn">Admin Panel</span>
+            </Link>
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
               to={`${url}/manageAllOrders`}
             >
               <i className="icons mb-1 me-3">
@@ -137,6 +149,16 @@ const Dashboard = () => {
           </div>
         ) : (
           <div className="offcanvas-body">
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
+              to={`${url}`}
+            >
+              <i className="icons mb-1 me-3">
+                <MdOutlineAdminPanelSettings />
+              </i>
+              <span className="nav-btn">User Panel</span>
+            </Link>
             <Link
               className="nav-link active d-flex align-items-center"
               aria-current="page"

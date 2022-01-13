@@ -1,0 +1,16 @@
+.mng-products-title {
+    font-size: 2.5rem;
+    color: #333f47;
+}
+
+@media screen and (max-width: 500px) {
+    .mng-products-title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mng-products-title {
+        font-size: 1.6rem;
+    }
+}

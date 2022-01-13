@@ -1,9 +1,11 @@
 .banner-container {
-    background-image: url(https://i.ibb.co/MDB476v/3355aa-1024x1024.jpg);
+    background-image: url(https://i.ibb.co/FnTGQyH/325-3254570-hermes-brand-perfume-wallpaper2014-perfume.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
     position: relative;
-    width: 100%;
-    min-height: 740px;
+    min-height: 100vh;
+    background-attachment: fixed;
 }
 
 .banner-container:before {
@@ -18,13 +20,39 @@
 
 .banner-container h1 {
     z-index: 1;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
+    font-size: 3.5rem;
 }
 
 .banner-container h5 {
     z-index: 1;
-    color: #fff;
+    color: #ffffff;
     padding-top: 10px;
     text-align: center;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 532px) {
+    .banner-container h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .banner-container h1 {
+        font-size: 2.7rem;
+    }
+}
+
+@media screen and (max-width: 388px) {
+    .banner-container h1 {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .banner-container h1 {
+        font-size: 2.1rem;
+    }
 }

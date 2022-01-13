@@ -39,7 +39,9 @@ const Review = () => {
       style={{ height: "100vh" }}
     >
       <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="fw-bold text-center mb-4">Add A Review!</h2>
+        <h2 className="fw-bold text-center mb-4 add-a-review-title">
+          Add A Review!
+        </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea
             type="text"

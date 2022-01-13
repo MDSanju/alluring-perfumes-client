@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="col-12 col-sm-6 col-md-3">
             <span
               className="fw-bold fs-3"
-              style={{ cursor: "pointer", color: "#ffda79" }}
+              style={{ cursor: "pointer", color: "rgb(143 203 255)" }}
             >
               Alluring Perfumes
             </span>
@@ -57,7 +57,7 @@ const Footer = () => {
         className="fw-bold text-center"
         style={{
           fontSize: "16px",
-          color: "#ffda79",
+          color: "#696969",
         }}
       >
         Copyright © 2000–2021 Alluring-perfumes.com™. All rights reserved.

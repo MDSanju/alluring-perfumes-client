@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import ScaleLoader from "react-spinners/ScaleLoader";
+import "./ManageProducts.css";
+
 // manage products for admin
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -37,10 +40,10 @@ const ManageProducts = () => {
 
   return (
     <div style={{ marginTop: "75px", marginBottom: "145px" }}>
-      <h2 className="container fw-bold mb-5 text-center">
+      <h2 className="container fw-bold mb-5 text-center mng-products-title">
         All {products.length} Perfumes on this Website!
       </h2>
-      {!isLoading && (
+      {products.length && (
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
             {products.map((product) => (
@@ -75,14 +78,15 @@ const ManageProducts = () => {
           </div>
         </div>
       )}
-      {isLoading && (
+      {!products.length && (
         <div
-          className="d-flex justify-content-center"
-          style={{ marginTop: "18vh" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "38px",
+          }}
         >
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+          <ScaleLoader color={"#003665"} size={85} />
         </div>
       )}
     </div>

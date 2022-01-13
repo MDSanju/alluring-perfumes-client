@@ -1,0 +1,10 @@
+.admin-user-panel {
+    color: #333f47;
+    font-size: 2.8rem;
+}
+
+@media screen and (max-width: 350px) {
+    .admin-user-panel {
+        font-size: 2.1rem;
+    }
+}

@@ -48,7 +48,9 @@ const PurchasePage = () => {
   };
   return (
     <div className="container" style={{ marginTop: "75px" }}>
-      <h2 className="text-center fw-bold">Perfume: {product.name}</h2>
+      <h2 className="text-center fw-bold product-view-title">
+        Perfume: {product.name}
+      </h2>
       <div className="w-75 mx-auto mt-5 product-info">
         <img className="mx-3 product-img" src={product.img} alt="" />
         <div className="mx-3">
@@ -65,7 +67,9 @@ const PurchasePage = () => {
         style={{ marginBottom: "125px" }}
       >
         <div className="form-floating mb-3 mt-4 col-10 col-sm-10 col-md-5">
-          <h2 className="fw-bold text-center mb-4">Purchase Now!</h2>
+          <h2 className="fw-bold text-center mb-4 submit-order-title">
+            Purchase Now!
+          </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
               type="text"
