@@ -8,7 +8,7 @@ const Tab1 = ({ tab1 }) => {
     console.log(data);
     const proceed = window.confirm("Please Confirm!");
     if (proceed) {
-      fetch(`http://localhost:5000/tab1/${tab1._id}`, {
+      fetch(`https://mysterious-brook-12035.herokuapp.com/tab1/${tab1._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
