@@ -8,10 +8,16 @@ import {
   BiCartAlt,
   BiUserCheck,
   BiCustomize,
+  BiBookContent,
 } from "react-icons/bi";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import {
+  MdOutlineAdminPanelSettings,
+  MdOutlineContentPaste,
+  MdDeleteForever,
+} from "react-icons/md";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
+import { RiTableLine } from "react-icons/ri";
 import "./Dashboard.css";
 import Pay from "../Pay/Pay";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
@@ -24,6 +30,10 @@ import AddProduct from "../AddProduct/AddProduct";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import Review from "../Review/Review";
 import Shipped from "../Shipped/Shipped";
+import TabsManagement from "../TabsManagement/TabsManagement";
+import ContentTabOne from "../ContentTabOne/ContentTabOne";
+import ContentTabTwo from "../ContentTabTwo/ContentTabTwo";
+import ManageTabsContents from "../ManageTabsContents/ManageTabsContents";
 
 // dashboard
 const Dashboard = () => {
@@ -126,6 +136,7 @@ const Dashboard = () => {
               </i>
               <span className="nav-btn">Add A Product</span>
             </Link>
+
             <Link
               className="nav-link active d-flex align-items-center"
               aria-current="page"
@@ -145,6 +156,47 @@ const Dashboard = () => {
                 <IoSettings />
               </i>
               <span className="nav-btn">Manage Products</span>
+            </Link>
+            <hr />
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
+              to={`${url}/tabsManagement`}
+            >
+              <i className="icons mb-1 me-3">
+                <RiTableLine />
+              </i>
+              <span className="nav-btn">Set Tabs Name</span>
+            </Link>
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
+              to={`${url}/contentTabOne`}
+            >
+              <i className="icons mb-1 me-3">
+                <BiBookContent />
+              </i>
+              <span className="nav-btn">Tab-1 Content</span>
+            </Link>
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
+              to={`${url}/contentTabTwo`}
+            >
+              <i className="icons mb-1 me-3">
+                <MdOutlineContentPaste />
+              </i>
+              <span className="nav-btn">Tab-2 Content</span>
+            </Link>
+            <Link
+              className="nav-link active d-flex align-items-center"
+              aria-current="page"
+              to={`${url}/manageTabsContents`}
+            >
+              <i className="icons mb-1 me-3">
+                <MdDeleteForever />
+              </i>
+              <span className="nav-btn">Manage Tabs Contents</span>
             </Link>
           </div>
         ) : (
@@ -210,6 +262,9 @@ const Dashboard = () => {
         <AdminRoute path={`${path}/manageAllOrders`}>
           <ManageAllOrders></ManageAllOrders>
         </AdminRoute>
+        <AdminRoute path={`${path}/tabsManagement`}>
+          <TabsManagement></TabsManagement>
+        </AdminRoute>
         <AdminRoute path={`${path}/addProduct`}>
           <AddProduct></AddProduct>
         </AdminRoute>
@@ -221,6 +276,15 @@ const Dashboard = () => {
         </AdminRoute>
         <AdminRoute path={`${path}/shipped`}>
           <Shipped></Shipped>
+        </AdminRoute>
+        <AdminRoute path={`${path}/contentTabOne`}>
+          <ContentTabOne></ContentTabOne>
+        </AdminRoute>
+        <AdminRoute path={`${path}/contentTabTwo`}>
+          <ContentTabTwo></ContentTabTwo>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageTabsContents`}>
+          <ManageTabsContents></ManageTabsContents>
         </AdminRoute>
       </Switch>
     </div>

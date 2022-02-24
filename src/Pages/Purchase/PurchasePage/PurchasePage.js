@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
+import ScaleLoader from "react-spinners/ScaleLoader";
+import TextField from "@mui/material/TextField";
 import "./PurchasePage.css";
 
 const PurchasePage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
+  console.log(product);
   const { user } = useAuth();
   // default status
   const status = "Pending";
@@ -47,54 +50,64 @@ const PurchasePage = () => {
     }
   };
   return (
-    <div className="container" style={{ marginTop: "75px" }}>
-      <h2 className="text-center fw-bold product-view-title">
-        Perfume: {product.name}
-      </h2>
-      <div className="w-75 mx-auto mt-5 product-info">
-        <img className="mx-3 product-img" src={product.img} alt="" />
-        <div className="mx-3">
-          <h3 style={{ color: "#8801bf" }}>Price: ${product.price}</h3>
-          <p className="mt-3">{product.description}</p>
+    <div className="container" style={{ marginTop: "85px" }}>
+      {product._id ? (
+        <div id="main-container">
+          <div id="main-wrapper">
+            <div className="column detail-wrapper">
+              <h2 className="purchase-checkout-title">Checkout Now</h2>
+              <div className="checkout-product-detail">
+                <img src={product.img} alt="" />
+                <p className="checkout-product-name">{product.name}</p>
+                <p className="checkout-product-price">${product.price}</p>
+              </div>
+            </div>
+
+            <div className="column form-wrapper">
+              <form
+                action=""
+                className="checkout-form"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <TextField
+                  id="standard-basic"
+                  label="Address"
+                  className="checkout-text-field"
+                  variant="standard"
+                  {...register("address")}
+                  required
+                />
+                <br />
+                <br />
+                <TextField
+                  id="standard-basic"
+                  label="Phone"
+                  className="checkout-text-field"
+                  variant="standard"
+                  {...register("phone")}
+                  required
+                />
+
+                <div style={{ textAlign: "right" }}>
+                  <button className="btn-checkout" type="submit">
+                    Checkout
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-      <br />
-      <br />
-      <hr />
-      <br />
-      <div
-        className="d-flex justify-content-center"
-        style={{ marginBottom: "125px" }}
-      >
-        <div className="form-floating mb-3 mt-4 col-10 col-sm-10 col-md-5">
-          <h2 className="fw-bold text-center mb-4 submit-order-title">
-            Purchase Now!
-          </h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              placeholder="Address"
-              {...register("address")}
-              required
-            />
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              placeholder="Phone"
-              {...register("phone")}
-              required
-            />
-            <input
-              type="submit"
-              className="btn btn-primary w-100 mt-3"
-              value="Place Order"
-            />
-          </form>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "35px",
+          }}
+        >
+          <ScaleLoader color={"#003665"} size={85} />
         </div>
-      </div>
+      )}
     </div>
   );
 };

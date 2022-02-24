@@ -1,0 +1,59 @@
+.tab-menus {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    max-width: 564px;
+    width: 100%;
+    box-shadow: 0 5.64912px 14.1228px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+}
+
+.perfume-icon {
+    font-size: 3rem;
+}
+
+.tabs {
+    cursor: pointer;
+    padding-top: 14px;
+    box-sizing: border-box;
+    color: #6c6c6c;
+    width: 38%;
+    margin: 0 5%;
+    font-family: Hind Siliguri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 29px;
+    position: relative;
+}
+
+.tabs h4 {
+    line-height: 2;
+}
+
+.active-tabs {
+    color: #ff136f;
+}
+
+.active-tabs i {
+    color: #ff136f;
+}
+
+.active-tabs::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background-color: #ff136f;
+    bottom: 0;
+    position: absolute;
+}
+
+.content {
+    display: none;
+}
+
+.active-content {
+    display: block;
+}

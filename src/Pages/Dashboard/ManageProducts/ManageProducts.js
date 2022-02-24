@@ -6,15 +6,12 @@ import "./ManageProducts.css";
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
-  // preloading spinner
-  const [isLoading, setIsloading] = useState(true);
+  
 
   useEffect(() => {
-    setIsloading(true);
     fetch("https://mysterious-brook-12035.herokuapp.com/perfumes")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-    setIsloading(false);
   }, []);
 
   const handleDeleteProduct = (id) => {
