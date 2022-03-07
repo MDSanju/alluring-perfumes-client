@@ -1,3 +1,7 @@
+.font-family-set {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .navlink-custom {
     display: flex;
     justify-content: flex-end;
