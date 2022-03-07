@@ -18,15 +18,14 @@
     font-size: 2.8rem;
 }
 
-#main-container {
+.main-container {
     width: 100%;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#main-wrapper {
+.main-wrapper {
     width: 100%;
     max-width: 900px;
     min-width: 300px;
@@ -36,29 +35,29 @@
     display: flex;
 }
 
-#main-wrapper .column {
+.main-wrapper .column {
     padding: 40px;
 }
 
-#main-wrapper .column.detail-wrapper {
+.main-wrapper .column.detail-wrapper {
     width: 40%;
     border-radius: 5px 0 0 5px;
 }
 
-#main-wrapper .column.form-wrapper {
+.main-wrapper .column.form-wrapper {
     width: 60%;
     background: #feae17;
     border-radius: 0 5px 5px 0;
 }
 
-#main-wrapper .purchase-checkout-title {
+.main-wrapper .purchase-checkout-title {
     font-weight: 700;
     color: #feae17;
     text-align: center;
     position: relative;
 }
 
-#main-wrapper .purchase-checkout-title:before {
+.main-wrapper .purchase-checkout-title:before {
     content: '';
     width: 50px;
     height: 3px;
@@ -140,6 +139,32 @@
     color: #feae17;
 }
 
+.perfume_details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    flex-direction: row;
+}
+
+.perfume_content {
+    width: 65%;
+}
+
+.perfume_img {
+    width: 35%;
+}
+
+.perfume_detail_description {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.perfume_price_detail {
+    font-size: 28px;
+    font-weight: 700;
+}
+
 @media screen and (max-width: 992px) {
     .product-info {
         display: flex;
@@ -148,7 +173,7 @@
     .product-img {
         margin-bottom: 30px;
     }
-    #main-wrapper .column {
+    .main-wrapper .column {
         flex: 1;
         width: 100% !important;
     }
@@ -162,10 +187,19 @@
         height: 240px;
         margin-bottom: 30px;
     }
+    .perfume_details {
+        flex-direction: column-reverse;
+    }
+    .perfume_content {
+        width: 100%;
+    }
+    .perfume_img {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    #main-wrapper {
+    .main-wrapper {
         flex-flow: column wrap;
     }
 }

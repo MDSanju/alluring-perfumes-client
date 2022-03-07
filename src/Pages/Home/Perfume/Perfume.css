@@ -38,7 +38,7 @@
 
 .product-field ul li {
     list-style: none;
-    height: 550px;
+    height: 520px;
     transition: 0.5s all;
     background: whitesmoke;
     /*overflow: hidden;*/
@@ -53,9 +53,9 @@ picture {
     padding: 5px;
     position: absolute;
     right: 0;
-    bottom: 41%;
-    width: 75%;
-    height: 70%;
+    bottom: 45%;
+    width: 72%;
+    height: 77%;
     border-radius: 50px 20px 0 20px;
     transform: skewY(40deg);
     overflow: hidden;
@@ -63,10 +63,10 @@ picture {
 }
 
 picture img {
-    width: 95%;
+    width: 100%;
     z-index: 1;
     transform: skewY(-40deg);
-    padding: 25px 0 0 0;
+    padding: 80px 0 0 0;
 }
 
 .detail {
@@ -101,8 +101,11 @@ picture img {
 
 .detail>strong {
     display: inherit;
-    margin: 20px;
-    font-size: 30px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 28px;
     letter-spacing: 2px;
     color: #555;
 }
@@ -116,7 +119,8 @@ picture img {
 .detail small {
     display: inline-block;
     padding: 8px 20px;
-    margin: 15px;
+    margin-top: 20px;
+    margin-left: 16px;
     font-weight: bold;
     border-radius: 6px;
     border: 1px solid #999;

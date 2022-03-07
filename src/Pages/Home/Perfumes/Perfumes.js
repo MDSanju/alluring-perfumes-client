@@ -17,12 +17,10 @@ const Perfumes = () => {
 
   return (
     <div style={{ marginTop: "95px", color: "#333f47" }}>
-      <h2 className={`container mt-5 text-center ${styles.section_title}`}>
+      <h2 className={`container mt-5 mb-5 text-center ${styles.section_title}`}>
         Top Most Popular Fragrances!
       </h2>
       {perfumes.length ? (
-        // <div className="container">
-        //   <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
         <div className="perfumes_display">
           <div className="all_perfumes">
             <div class="product-field">

@@ -52,8 +52,40 @@ const PurchasePage = () => {
   return (
     <div className="container" style={{ marginTop: "85px" }}>
       {product._id ? (
-        <div id="main-container">
-          <div id="main-wrapper">
+        <div className="main-container">
+          <div className="main-wrapper justify-content-center align-items-center">
+            <div className="perfume_details">
+              <div className="perfume_content">
+                <h2>{product.name}</h2>
+                <p className="perfume_detail_description">
+                  {product.description}
+                </p>
+                <p className="perfume_price_detail">${product.price}</p>
+              </div>
+              <div className="perfume_img">
+                <img src={product.img} className="w-100" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "35px",
+          }}
+        >
+          <ScaleLoader color={"#003665"} size={85} />
+        </div>
+      )}
+      <br />
+      <br />
+      <br />
+      <br />
+      {product._id ? (
+        <div className="main-container">
+          <div className="main-wrapper">
             <div className="column detail-wrapper">
               <h2 className="purchase-checkout-title">Checkout Now</h2>
               <div className="checkout-product-detail">
