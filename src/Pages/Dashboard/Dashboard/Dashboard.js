@@ -104,167 +104,167 @@ const Dashboard = () => {
       {/* <div className={darkMode ? "body dark" : "body"}>
         <nav className={collapse ? "sidebar" : "sidebar close"}>
           <header>
-            <div class="image-text">
-              <span class="image">
+            <div className="image-text">
+              <span className="image">
                 <img
                   src="https://cdn.dribbble.com/users/24078/screenshots/15522433/media/e92e58ec9d338a234945ae3d3ffd5be3.jpg?compress=1&resize=400x300"
                   alt=""
                 />
               </span>
 
-              <div class="text logo-text">
-                <span class="name">Codinglab</span>
-                <span class="profession">Web developer</span>
+              <div className="text logo-text">
+                <span className="name">Codinglab</span>
+                <span className="profession">Web developer</span>
               </div>
             </div>
 
-            <i class="bx bx-chevron-right toggle" onClick={handleCollapse}></i>
+            <i className="bx bx-chevron-right toggle" onClick={handleCollapse}></i>
           </header>
 
-          <div class="menu-bar">
-            <div class="menu">
-              <li class="search-box">
-                <i class="bx bx-search icon"></i>
+          <div className="menu-bar">
+            <div className="menu">
+              <li className="search-box">
+                <i className="bx bx-search icon"></i>
                 <input type="text" placeholder="Search..." />
               </li>
 
-              <ul class="menu-links">
-                <li class="nav-link">
+              <ul className="menu-links">
+                <li className="nav-link">
                   <a href="#">
-                    <i class="bx bx-home-alt icon"></i>
-                    <span class="text nav-text">Dashboard</span>
+                    <i className="bx bx-home-alt icon"></i>
+                    <span className="text nav-text">Dashboard</span>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/manageAllOrders`}>
-                      <i class="bx bx-bar-chart-alt-2 icon"></i>
-                      <span class="text nav-text">Manage All Orders</span>
+                      <i className="bx bx-bar-chart-alt-2 icon"></i>
+                      <span className="text nav-text">Manage All Orders</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/addProduct`}>
-                      <i class="bx bx-bell icon"></i>
-                      <span class="text nav-text">Add A Product</span>
+                      <i className="bx bx-bell icon"></i>
+                      <span className="text nav-text">Add A Product</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/makeAdmin`}>
-                      <i class="bx bx-pie-chart-alt icon"></i>
-                      <span class="text nav-text">Make Admin</span>
+                      <i className="bx bx-pie-chart-alt icon"></i>
+                      <span className="text nav-text">Make Admin</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/manageProducts`}>
-                      <i class="bx bx-heart icon"></i>
-                      <span class="text nav-text">Manage Products</span>
+                      <i className="bx bx-heart icon"></i>
+                      <span className="text nav-text">Manage Products</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/tabsManagement`}>
-                      <i class="bx bx-wallet icon"></i>
-                      <span class="text nav-text">Set Tabs Name</span>
+                      <i className="bx bx-wallet icon"></i>
+                      <span className="text nav-text">Set Tabs Name</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/contentTabOne`}>
-                      <i class="bx bx-wallet icon"></i>
-                      <span class="text nav-text">Tab-1 Content</span>
+                      <i className="bx bx-wallet icon"></i>
+                      <span className="text nav-text">Tab-1 Content</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/contentTabTwo`}>
-                      <i class="bx bx-wallet icon"></i>
-                      <span class="text nav-text">Tab-2 Content</span>
+                      <i className="bx bx-wallet icon"></i>
+                      <span className="text nav-text">Tab-2 Content</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link
                       className="react-ancor"
                       to={`${url}/manageTabsContents`}
                     >
-                      <i class="bx bx-wallet icon"></i>
-                      <span class="text nav-text">Manage Tabs Contents</span>
+                      <i className="bx bx-wallet icon"></i>
+                      <span className="text nav-text">Manage Tabs Contents</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/pay`}>
-                      <i class="bx bx-bar-chart-alt-2 icon"></i>
-                      <span class="text nav-text">Pay</span>
+                      <i className="bx bx-bar-chart-alt-2 icon"></i>
+                      <span className="text nav-text">Pay</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/myOrders`}>
-                      <i class="bx bx-bell icon"></i>
-                      <span class="text nav-text">My Orders</span>
+                      <i className="bx bx-bell icon"></i>
+                      <span className="text nav-text">My Orders</span>
                     </Link>
                   </a>
                 </li>
 
-                <li class="nav-link">
+                <li className="nav-link">
                   <a href="#">
                     <Link className="react-ancor" to={`${url}/review`}>
-                      <i class="bx bx-pie-chart-alt icon"></i>
-                      <span class="text nav-text">Review</span>
+                      <i className="bx bx-pie-chart-alt icon"></i>
+                      <span className="text nav-text">Review</span>
                     </Link>
                   </a>
                 </li>
               </ul>
             </div>
 
-            <div class="bottom-content">
-              <li class="">
+            <div className="bottom-content">
+              <li className="">
                 <a href="#">
-                  <i class="bx bx-log-out icon"></i>
-                  <span class="text nav-text">Logout</span>
+                  <i className="bx bx-log-out icon"></i>
+                  <span className="text nav-text">Logout</span>
                 </a>
               </li>
 
-              <li class="mode">
-                <div class="sun-moon">
-                  <i class="bx bx-moon icon moon"></i>
-                  <i class="bx bx-sun icon sun"></i>
+              <li className="mode">
+                <div className="sun-moon">
+                  <i className="bx bx-moon icon moon"></i>
+                  <i className="bx bx-sun icon sun"></i>
                 </div>
-                <span class="mode-text text">
+                <span className="mode-text text">
                   {!darkMode ? "Dark mode" : "Light mode"}
                 </span>
 
-                <div class="toggle-switch" onClick={handleMode}>
-                  <span class="switch"></span>
+                <div className="toggle-switch" onClick={handleMode}>
+                  <span className="switch"></span>
                 </div>
               </li>
             </div>
           </div>
         </nav>
-        <section class="home">
+        <section className="home">
           <Switch>
             <Route exact path={path}>
               <DashboardHome></DashboardHome>

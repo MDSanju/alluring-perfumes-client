@@ -59,14 +59,16 @@ const LoginForm = () => {
   return (
     <div className="login_reg_body">
       <div
-        class={!signUpMode ? "main_container" : "sign-up-mode main_container"}
+        className={
+          !signUpMode ? "main_container" : "sign-up-mode main_container"
+        }
       >
-        <div class="forms-container">
-          <div class="signin-signup">
-            <form onSubmit={handleSubmit(onSubmit)} class="sign-in-form">
-              <h2 class="signin_title">Sign in</h2>
-              <div class="input-field">
-                <i class="fas fa-envelope"></i>
+        <div className="forms-container">
+          <div className="signin-signup">
+            <form onSubmit={handleSubmit(onSubmit)} className="sign-in-form">
+              <h2 className="signin_title">Sign in</h2>
+              <div className="input-field">
+                <i className="fas fa-envelope"></i>
                 <input
                   type="email"
                   placeholder="Email"
@@ -74,8 +76,8 @@ const LoginForm = () => {
                   {...register("email")}
                 />
               </div>
-              <div class="input-field">
-                <i class="fas fa-lock"></i>
+              <div className="input-field">
+                <i className="fas fa-lock"></i>
                 <input
                   type="password"
                   placeholder="Password"
@@ -116,22 +118,22 @@ const LoginForm = () => {
                   type="submit"
                   onClick={notify}
                   value="Login"
-                  class="common_btn solid"
+                  className="common_btn solid"
                 />
               )}
-              <p class="social-text">Or Sign in with social platforms</p>
-              <div class="social-media">
-                <a href="#" class="social-icon">
-                  <i class="fab fa-facebook-f"></i>
+              <p className="social-text">Or Sign in with social platforms</p>
+              <div className="social-media">
+                <a href="#" className="social-icon">
+                  <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-icon">
-                  <i class="fab fa-twitter"></i>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" class="social-icon">
-                  <i class="fab fa-google"></i>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-google"></i>
                 </a>
-                <a href="#" class="social-icon">
-                  <i class="fab fa-linkedin-in"></i>
+                <a href="#" className="social-icon">
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
               </div>
             </form>
@@ -139,54 +141,54 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <div class="panels-container">
-          <div class="panel left-panel">
-            <div class="form_content">
+        <div className="panels-container">
+          <div className="panel left-panel">
+            <div className="form_content">
               <h3 style={{ margin: "0" }}>New here ?</h3>
               <p style={{ margin: "0" }}>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Debitis, ex ratione. Aliquid!
               </p>
               <button
-                class="common_btn transparent mx-1"
+                className="common_btn transparent mx-1"
                 onClick={handleSignInUpPopUp}
                 id="sign-up-btn"
               >
                 Sign up
               </button>
               <button
-                class="common_btn transparent mx-1"
+                className="common_btn transparent mx-1"
                 onClick={handleGoBackHome}
                 id="sign-up-btn"
               >
                 Home
               </button>
             </div>
-            <img src={loginImg} class="image" alt="" />
+            <img src={loginImg} className="image" alt="" />
           </div>
-          <div class="panel right-panel">
-            <div class="form_content">
+          <div className="panel right-panel">
+            <div className="form_content">
               <h3 style={{ margin: "0" }}>One of us ?</h3>
               <p style={{ margin: "0" }}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
                 laboriosam ad deleniti.
               </p>
               <button
-                class="common_btn transparent mx-1"
+                className="common_btn transparent mx-1"
                 onClick={handleSignInUpPopUp}
                 id="sign-in-btn"
               >
                 Sign in
               </button>
               <button
-                class="common_btn transparent mx-1"
+                className="common_btn transparent mx-1"
                 onClick={handleGoBackHome}
                 id="sign-up-btn"
               >
                 Home
               </button>
             </div>
-            <img src={registrationImg} class="image" alt="" />
+            <img src={registrationImg} className="image" alt="" />
           </div>
         </div>
       </div>

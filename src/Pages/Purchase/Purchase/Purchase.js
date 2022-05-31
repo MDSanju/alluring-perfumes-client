@@ -8,6 +8,11 @@ const Purchase = () => {
     <div>
       <Navbar></Navbar>
       <PurchasePage></PurchasePage>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Footer></Footer>
     </div>
   );

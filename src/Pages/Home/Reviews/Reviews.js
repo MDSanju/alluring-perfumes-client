@@ -38,22 +38,22 @@ const Reviews = () => {
       <BodyRole>
         {reviews.length ? (
           <Section>
-            <div class="container">
+            <div className="container">
               <SectionTitle>
                 <h2>What Our Customers Are Saying!</h2>
                 <SectionSeparator></SectionSeparator>
               </SectionTitle>
             </div>
-            <div class="testimonials-carousel-wrap">
-              <div class="listing-carousel-button listing-carousel-button-next">
-                <i class="fa fa-caret-right" style={{ color: "#fff" }}></i>
+            <div className="testimonials-carousel-wrap">
+              <div className="listing-carousel-button listing-carousel-button-next">
+                <i className="fa fa-caret-right" style={{ color: "#fff" }}></i>
               </div>
-              <div class="listing-carousel-button listing-carousel-button-prev">
-                <i class="fa fa-caret-left" style={{ color: "#fff" }}></i>
+              <div className="listing-carousel-button listing-carousel-button-prev">
+                <i className="fa fa-caret-left" style={{ color: "#fff" }}></i>
               </div>
-              <div class="testimonials-carousel">
+              <div className="testimonials-carousel">
                 <SwiperContainer>
-                  <div class="swiper-wrapper">
+                  <div className="swiper-wrapper">
                     <Swiper
                       modules={[Navigation, Pagination, Scrollbar, A11y]}
                       preloadImages={false}
@@ -78,18 +78,18 @@ const Reviews = () => {
                     >
                       {reviews.map((review) => (
                         <SwiperSlide key={review._id}>
-                          <div class="swiper-slide">
-                            <div class="testi-item">
+                          <div className="swiper-slide">
+                            <div className="testi-item">
                               <TestiAvatar>
                                 <img
                                   src="https://i.ibb.co/BrpsgFp/users.png"
                                   alt=""
                                 />
                               </TestiAvatar>
-                              <div class="testimonials-text-before">
-                                <i class="fa fa-quote-right"></i>
+                              <div className="testimonials-text-before">
+                                <i className="fa fa-quote-right"></i>
                               </div>
-                              <div class="testimonials-text">
+                              <div className="testimonials-text">
                                 <br />
                                 <Rating
                                   initialRating={review.rating}
@@ -100,14 +100,14 @@ const Reviews = () => {
                                 <br />
                                 <br />
                                 <UserReviewText>{review.review}</UserReviewText>
-                                <a href="#" class="text-link"></a>
+                                <a href="#" className="text-link"></a>
                                 <TestimonialsAvatar>
                                   <h3>{review.displayName}</h3>
                                   <h4>Customer</h4>
                                 </TestimonialsAvatar>
                               </div>
-                              <div class="testimonials-text-after">
-                                <i class="fa fa-quote-left"></i>
+                              <div className="testimonials-text-after">
+                                <i className="fa fa-quote-left"></i>
                               </div>
                             </div>
                           </div>
@@ -118,7 +118,7 @@ const Reviews = () => {
                 </SwiperContainer>
               </div>
 
-              <div class="tc-pagination"></div>
+              <div className="tc-pagination"></div>
             </div>
           </Section>
         ) : (

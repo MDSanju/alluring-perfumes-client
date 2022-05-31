@@ -46,16 +46,16 @@ const Footer = () => {
         <BoxFooter>
           <h2>Social Links</h2>
           <a href="#">
-            <i class="fab fa-facebook-square"></i> Facebook
+            <i className="fab fa-facebook-square"></i> Facebook
           </a>
           <a href="#">
-            <i class="fab fa-twitter-square"></i> Twitter
+            <i className="fab fa-twitter-square"></i> Twitter
           </a>
           <a href="#">
-            <i class="fab fa-linkedin"></i> Linkedin
+            <i className="fab fa-linkedin"></i> Linkedin
           </a>
           <a href="#">
-            <i class="fab fa-instagram-square"></i> Instagram
+            <i className="fab fa-instagram-square"></i> Instagram
           </a>
         </BoxFooter>
       </ContainerFooter>

@@ -23,13 +23,13 @@ const ExplorePerfume = ({ perfume }) => {
         <CardDetail>
           <p>
             <span>
-              <i class="far fa-heart"></i>
+              <i className="far fa-heart"></i>
             </span>
             <span>
-              <i class="far fa-share-square"></i>
+              <i className="far fa-share-square"></i>
             </span>
             <span>
-              <i class="fas fa-shopping-basket"></i>
+              <i className="fas fa-shopping-basket"></i>
             </span>
           </p>
           <strong>{showName}...</strong>
