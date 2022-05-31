@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { useHistory } from "react-router";
 import {
@@ -18,7 +18,6 @@ import {
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
 import { RiTableLine } from "react-icons/ri";
-import "./Dashboard.css";
 import Pay from "../Pay/Pay";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import useAuth from "../../../hooks/useAuth";
@@ -34,12 +33,33 @@ import TabsManagement from "../TabsManagement/TabsManagement";
 import ContentTabOne from "../ContentTabOne/ContentTabOne";
 import ContentTabTwo from "../ContentTabTwo/ContentTabTwo";
 import ManageTabsContents from "../ManageTabsContents/ManageTabsContents";
+import Payment from "../Payment/Payment";
+import "./Dashboard.css";
 
 // dashboard
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
   const { admin, logout } = useAuth();
   const history = useHistory();
+
+  const [collapse, setCollapse] = useState("");
+  const [darkMode, setDarkMode] = useState("");
+
+  const handleCollapse = () => {
+    if (collapse) {
+      setCollapse(false);
+    } else {
+      setCollapse(true);
+    }
+  };
+
+  const handleMode = () => {
+    if (darkMode) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  };
 
   const backToHomePage = () => {
     history.push("/home");
@@ -81,6 +101,217 @@ const Dashboard = () => {
         </div>
       </nav>
 
+      {/* <div className={darkMode ? "body dark" : "body"}>
+        <nav className={collapse ? "sidebar" : "sidebar close"}>
+          <header>
+            <div class="image-text">
+              <span class="image">
+                <img
+                  src="https://cdn.dribbble.com/users/24078/screenshots/15522433/media/e92e58ec9d338a234945ae3d3ffd5be3.jpg?compress=1&resize=400x300"
+                  alt=""
+                />
+              </span>
+
+              <div class="text logo-text">
+                <span class="name">Codinglab</span>
+                <span class="profession">Web developer</span>
+              </div>
+            </div>
+
+            <i class="bx bx-chevron-right toggle" onClick={handleCollapse}></i>
+          </header>
+
+          <div class="menu-bar">
+            <div class="menu">
+              <li class="search-box">
+                <i class="bx bx-search icon"></i>
+                <input type="text" placeholder="Search..." />
+              </li>
+
+              <ul class="menu-links">
+                <li class="nav-link">
+                  <a href="#">
+                    <i class="bx bx-home-alt icon"></i>
+                    <span class="text nav-text">Dashboard</span>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/manageAllOrders`}>
+                      <i class="bx bx-bar-chart-alt-2 icon"></i>
+                      <span class="text nav-text">Manage All Orders</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/addProduct`}>
+                      <i class="bx bx-bell icon"></i>
+                      <span class="text nav-text">Add A Product</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/makeAdmin`}>
+                      <i class="bx bx-pie-chart-alt icon"></i>
+                      <span class="text nav-text">Make Admin</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/manageProducts`}>
+                      <i class="bx bx-heart icon"></i>
+                      <span class="text nav-text">Manage Products</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/tabsManagement`}>
+                      <i class="bx bx-wallet icon"></i>
+                      <span class="text nav-text">Set Tabs Name</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/contentTabOne`}>
+                      <i class="bx bx-wallet icon"></i>
+                      <span class="text nav-text">Tab-1 Content</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/contentTabTwo`}>
+                      <i class="bx bx-wallet icon"></i>
+                      <span class="text nav-text">Tab-2 Content</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link
+                      className="react-ancor"
+                      to={`${url}/manageTabsContents`}
+                    >
+                      <i class="bx bx-wallet icon"></i>
+                      <span class="text nav-text">Manage Tabs Contents</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/pay`}>
+                      <i class="bx bx-bar-chart-alt-2 icon"></i>
+                      <span class="text nav-text">Pay</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/myOrders`}>
+                      <i class="bx bx-bell icon"></i>
+                      <span class="text nav-text">My Orders</span>
+                    </Link>
+                  </a>
+                </li>
+
+                <li class="nav-link">
+                  <a href="#">
+                    <Link className="react-ancor" to={`${url}/review`}>
+                      <i class="bx bx-pie-chart-alt icon"></i>
+                      <span class="text nav-text">Review</span>
+                    </Link>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bottom-content">
+              <li class="">
+                <a href="#">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="text nav-text">Logout</span>
+                </a>
+              </li>
+
+              <li class="mode">
+                <div class="sun-moon">
+                  <i class="bx bx-moon icon moon"></i>
+                  <i class="bx bx-sun icon sun"></i>
+                </div>
+                <span class="mode-text text">
+                  {!darkMode ? "Dark mode" : "Light mode"}
+                </span>
+
+                <div class="toggle-switch" onClick={handleMode}>
+                  <span class="switch"></span>
+                </div>
+              </li>
+            </div>
+          </div>
+        </nav>
+        <section class="home">
+          <Switch>
+            <Route exact path={path}>
+              <DashboardHome></DashboardHome>
+            </Route>
+            <Route path={`${path}/pay`}>
+              <Pay></Pay>
+            </Route>
+            <Route path={`${path}/paying/:paymentId`}>
+              <Payment></Payment>
+            </Route>
+            <Route path={`${path}/myOrders`}>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
+            </Route>
+            <AdminRoute path={`${path}/manageAllOrders`}>
+              <ManageAllOrders></ManageAllOrders>
+            </AdminRoute>
+            <AdminRoute path={`${path}/tabsManagement`}>
+              <TabsManagement></TabsManagement>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addProduct`}>
+              <AddProduct></AddProduct>
+            </AdminRoute>
+            <AdminRoute path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageProducts`}>
+              <ManageProducts></ManageProducts>
+            </AdminRoute>
+            <AdminRoute path={`${path}/shipped`}>
+              <Shipped></Shipped>
+            </AdminRoute>
+            <AdminRoute path={`${path}/contentTabOne`}>
+              <ContentTabOne></ContentTabOne>
+            </AdminRoute>
+            <AdminRoute path={`${path}/contentTabTwo`}>
+              <ContentTabTwo></ContentTabTwo>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manageTabsContents`}>
+              <ManageTabsContents></ManageTabsContents>
+            </AdminRoute>
+          </Switch>
+        </section>
+      </div> */}
+
       <div
         className="offcanvas offcanvas-start"
         tabIndex="-1"
@@ -103,7 +334,7 @@ const Dashboard = () => {
             aria-label="Close"
           ></button>
         </div>
-        {/* all links of dashboard */}
+
         {admin ? (
           <div className="offcanvas-body">
             <Link
@@ -252,6 +483,9 @@ const Dashboard = () => {
         </Route>
         <Route path={`${path}/pay`}>
           <Pay></Pay>
+        </Route>
+        <Route path={`${path}/paying/:paymentId`}>
+          <Payment></Payment>
         </Route>
         <Route path={`${path}/myOrders`}>
           <MyOrders></MyOrders>

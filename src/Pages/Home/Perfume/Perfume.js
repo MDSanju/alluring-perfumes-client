@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import { CardDetail, PICTURE } from "../../styles/Cards.styles";
 import "./Perfume.css";
 
 const Perfume = ({ perfume }) => {
@@ -18,11 +19,11 @@ const Perfume = ({ perfume }) => {
   return (
     <div>
       <li data-category="" data-price="">
-        <picture>
+        <PICTURE>
           <img src={img} alt="" />
-        </picture>
-        <div class="detail">
-          <p class="icon">
+        </PICTURE>
+        <CardDetail>
+          <p>
             <span>
               <i class="far fa-heart"></i>
             </span>
@@ -42,7 +43,7 @@ const Perfume = ({ perfume }) => {
           </div>
 
           <small onClick={handlePurchase}>Purchase</small>
-        </div>
+        </CardDetail>
         <h4>${price}</h4>
       </li>
     </div>

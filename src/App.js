@@ -7,7 +7,6 @@ import CouponCode from "./Pages/Home/CouponCode/CouponCode";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
-import Register from "./Pages/Login/Register/Register";
 import NoMatch from "./Pages/NoMatch/NoMatch";
 import Purchase from "./Pages/Purchase/Purchase/Purchase";
 
@@ -25,9 +24,6 @@ function App() {
             </Route>
             <Route path="/explore">
               <Explore></Explore>
-            </Route>
-            <Route path="/register">
-              <Register></Register>
             </Route>
             <Route path="/login">
               <Login></Login>

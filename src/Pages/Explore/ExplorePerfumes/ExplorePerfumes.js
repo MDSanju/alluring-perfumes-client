@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ExplorePerfume from "../ExplorePerfume/ExplorePerfume";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { CARDS } from "../../styles/Cards.styles";
 import styles from "./ExplorePerfumes.module.css";
 
 const ExplorePerfumes = () => {
@@ -13,20 +14,24 @@ const ExplorePerfumes = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "74px", color: "#333f47" }}>
+    <div style={{ marginTop: "85px", color: "#333f47", marginBottom: "120px" }}>
       <h2 className={`container mb-5 text-center ${styles.explore_title}`}>
         Explore Our All ({perfumes.length}){" "}
         {perfumes.length >= 2 ? "Perfumes" : "Perfume"} Here!
       </h2>
       {perfumes.length ? (
-        <div className="container">
-          <div className="row row-cols-1 row-cols-md-3 g-4 mx-auto">
-            {perfumes.map((perfume) => (
-              <ExplorePerfume
-                key={perfume._id}
-                perfume={perfume}
-              ></ExplorePerfume>
-            ))}
+        <div className="perfumes_display">
+          <div className="all_perfumes">
+            <CARDS>
+              <ul>
+                {perfumes.map((perfume) => (
+                  <ExplorePerfume
+                    key={perfume._id}
+                    perfume={perfume}
+                  ></ExplorePerfume>
+                ))}
+              </ul>
+            </CARDS>
           </div>
         </div>
       ) : (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Perfume from "../Perfume/Perfume";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import { CARDS } from "../../styles/Cards.styles";
 import styles from "./Perfumes.module.css";
 
 const Perfumes = () => {
@@ -23,13 +24,13 @@ const Perfumes = () => {
       {perfumes.length ? (
         <div className="perfumes_display">
           <div className="all_perfumes">
-            <div class="product-field">
-              <ul class="items">
+            <CARDS>
+              <ul>
                 {sixPerfumes.map((perfume) => (
                   <Perfume key={perfume._id} perfume={perfume}></Perfume>
                 ))}
               </ul>
-            </div>
+            </CARDS>
           </div>
         </div>
       ) : (

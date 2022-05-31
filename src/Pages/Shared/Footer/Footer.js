@@ -1,68 +1,73 @@
 import React from "react";
-import payment from "../../../images/payment-getway.jpg";
+import footerLogoPNG from "../../../images/logo-magtimus.png";
+import {
+  BoxCopyRight,
+  BoxFooter,
+  BoxFooterTerms,
+  ContainerFooter,
+  FOOTER,
+} from "../../styles/Footer.styles";
 import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <div className="container mb-5 footer-items">
-        <div className="row" style={{ textAlign: "left" }}>
-          <div className="col-12 col-sm-6 col-md-3">
-            <span
-              className="fw-bold fs-3"
-              style={{ cursor: "pointer", color: "rgb(143 203 255)" }}
-            >
-              Alluring Perfumes
-            </span>
-            <p className="mt-4">Address: Gianyar, Bali, Indonesia – 80225</p>
-            <p>Phone: +62 361 234 4567</p>
-            <p>Email: admin@admin.com</p>
-            <div></div>
+    <FOOTER>
+      <ContainerFooter>
+        <BoxFooter>
+          <div>
+            <img src={footerLogoPNG} alt="" />
           </div>
-          <div className="col-12 col-sm-6 col-md-3">
-            <h4>Customer Care</h4>
-            <p className="mt-4">Contact Us</p>
-            <p>Site Map</p>
-            <p>Gift Vouchers</p>
-            <p>Best Sellers</p>
-          </div>
-          <div className="col-12 col-sm-6 col-md-3 open-time">
-            <h4>Quick Links</h4>
-            <p className="mt-4">Privacy Policy</p>
-            <p>Terms of Service</p>
-            <p>Credit</p>
-            <p>FAQ</p>
-          </div>
-          <div
-            style={{ textAlign: "left" }}
-            className="col-12 col-sm-6 col-md-3"
-          >
-            <small style={{ fontSize: "18px" }} className="fw-bold">
-              Choose your payment method:
-            </small>
-            <img
-              style={{
-                width: "100%",
-                borderRadius: "4px",
-                marginTop: "7px",
-                cursor: "pointer",
-              }}
-              src={payment}
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-      <p
-        className="fw-bold text-center"
-        style={{
-          fontSize: "16px",
-          color: "#696969",
-        }}
-      >
-        Copyright © 2000–2021 Alluring-perfumes.com™. All rights reserved.
-      </p>
-    </div>
+          <BoxFooterTerms>
+            <p>
+              Address: Gianyar, Bali, Indonesia – 802
+              <br />
+              <br />
+              Phone: +62 361 234 4567 <br />
+              Email: admin@admin.com
+            </p>
+          </BoxFooterTerms>
+        </BoxFooter>
+        <BoxFooter>
+          <h2>Supports</h2>
+          <a href="https://www.google.com">Contact Us</a>
+          <a href="#">Site Map</a>
+          <a href="#">Gift Vouchers</a>
+          <a href="#">Best Sellers</a>
+        </BoxFooter>
+
+        <BoxFooter>
+          <h2>Quick Links</h2>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms Service</a>
+          <a href="#">Credit</a>
+          <a href="#">FAQ</a>
+        </BoxFooter>
+
+        <BoxFooter>
+          <h2>Social Links</h2>
+          <a href="#">
+            <i class="fab fa-facebook-square"></i> Facebook
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter-square"></i> Twitter
+          </a>
+          <a href="#">
+            <i class="fab fa-linkedin"></i> Linkedin
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram-square"></i> Instagram
+          </a>
+        </BoxFooter>
+      </ContainerFooter>
+
+      <BoxCopyRight>
+        <hr />
+        <p>
+          Copyright © 2000–2021. All rights reserved!{" "}
+          <b>Alluring-perfumes.com™</b>
+        </p>
+      </BoxCopyRight>
+    </FOOTER>
   );
 };
 

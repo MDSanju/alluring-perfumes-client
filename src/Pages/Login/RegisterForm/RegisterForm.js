@@ -9,7 +9,7 @@ const RegisterForm = () => {
   const history = useHistory();
   const redirectUriHistory = useHistory();
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data) => {
+  const onRegSubmit = (data) => {
     if (data.password !== data.password2) {
       alert("password didn't match!");
       reset();
@@ -43,7 +43,7 @@ const RegisterForm = () => {
           Please Register!
         </h2>
         {!isLoading && (
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onRegSubmit)}>
             <input
               type="text"
               className="form-control mt-3"

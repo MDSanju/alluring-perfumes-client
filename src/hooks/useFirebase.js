@@ -16,13 +16,14 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
+  const [regError, setRegError] = useState("");
   const [admin, setAdmin] = useState(false);
 
   const userRegister = (email, password, name, redirectUriHistory) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setAuthError("");
+        setRegError("");
         const newUser = { email, displayName: name };
         setUser(newUser);
         // post to database
@@ -38,7 +39,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setAuthError(errorMessage);
+        setRegError(errorMessage);
       })
       .finally(() => setIsLoading(false));
   };
@@ -107,6 +108,7 @@ const useFirebase = () => {
     admin,
     isLoading,
     authError,
+    regError,
     userRegister,
     userLogin,
     logout,

@@ -27,6 +27,7 @@ const PurchasePage = () => {
       email: user.email,
       status: status,
       productName: product.name,
+      perfumePrice: product.price,
       address: data.address,
       phone: data.phone,
     };
