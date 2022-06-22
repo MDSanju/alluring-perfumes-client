@@ -1,5 +1,10 @@
     .explore_title {
-        font-size: 3.4rem;
+        color: #4d525e;
+        font-family: 'Carter One', cursive;
+        font-size: 34px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
     
     @media screen and (max-width: 992px) {

@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .banner-container {
-    background-image: url(https://i.ibb.co/FnTGQyH/325-3254570-hermes-brand-perfume-wallpaper2014-perfume.jpg);
+    background-image: url(https://i.ibb.co/GCkqYrd/wbBanner.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
     position: relative;
     min-height: 100vh;
-    background-attachment: fixed;
+    margin-top: 56px;
 }
 
 .banner-container:before {
@@ -18,19 +20,107 @@
     z-index: -1;
 }
 
+.hero_content_right {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    float: right;
+    margin-top: 40px;
+    margin-right: 3%;
+}
+
 .banner-container h1 {
     z-index: 1;
-    color: #ffffff;
+    color: #4d525e;
     text-align: center;
     font-size: 3.5rem;
+    font-family: 'Carter One', cursive;
 }
 
 .banner-container h5 {
     z-index: 1;
-    color: #ffffff;
+    color: #2b2b2b;
     padding-top: 10px;
     text-align: center;
     font-size: 1.4rem;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.explore_btn {
+    background-color: #333333;
+    color: #ffffff;
+    width: 145px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 100px;
+}
+
+.explore_btn:hover {
+    background-color: #f4f4f4;
+    color: #000;
+    transition: 0.2s ease;
+}
+
+.dashboard_btn {
+    background-color: #f4f4f4;
+    width: 145px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 100px;
+}
+
+.dashboard_btn:hover {
+    background-color: #333333;
+    color: #ffffff;
+    transition: 0.2s ease;
+}
+
+@media screen and (max-width: 1532px) {
+    .hero_content_right {
+        margin-right: 1%;
+    }
+}
+
+@media screen and (max-width: 1332px) {
+    .hero_content_right {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 1035px) {
+    .banner-container h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 1035px) {
+    .banner-container h1 {
+        font-size: 2.6rem;
+    }
+    .banner-container h5 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .hero_content_right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
 }
 
 @media screen and (max-width: 532px) {
@@ -49,10 +139,19 @@
     .banner-container h1 {
         font-size: 2.4rem;
     }
+    .banner-container h5 {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 350px) {
     .banner-container h1 {
         font-size: 2.1rem;
+    }
+    .banner-container h5 {
+        font-size: 0.8rem;
+    }
+    .hero_buttons {
+        flex-direction: column;
     }
 }

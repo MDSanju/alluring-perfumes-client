@@ -8,24 +8,26 @@ const Banner = () => {
   const goToExplore = () => {
     history.push("/explore");
   };
+  const goToDashboard = () => {
+    history.push("/newDashboard");
+  };
 
   return (
     <div className="banner-container">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          background: "rgba(18, 18, 18, .8)",
-        }}
-      >
+      <div className="hero_content_right">
         <div style={{ textAlign: "center" }}>
-          <h1>The Power Of Fragrant Attraction!</h1>
+          <h1>The Fragrant Attraction!</h1>
           <h5>Makes you more confident.</h5>
-          <button onClick={goToExplore} className="btn btn-outline-light mt-3">
-            Explore
-          </button>
+          <br />
+          <br />
+          <div className="hero_buttons">
+            <button onClick={goToExplore} className="explore_btn">
+              Explore
+            </button>
+            <button onClick={goToDashboard} className="dashboard_btn">
+              Dashboard
+            </button>
+          </div>
         </div>
       </div>
     </div>

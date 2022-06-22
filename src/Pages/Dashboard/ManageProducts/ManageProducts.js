@@ -9,9 +9,9 @@ const ManageProducts = () => {
   
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/perfumes")
+    fetch("http://localhost:5000/perfumes")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.perfumes));
   }, []);
 
   const handleDeleteProduct = (id) => {
@@ -19,7 +19,7 @@ const ManageProducts = () => {
       "Are you sure that you want to Delete this Product forever?"
     );
     if (proceed) {
-      fetch(`https://mysterious-brook-12035.herokuapp.com/perfumes/${id}`, {
+      fetch(`http://localhost:5000/perfumes/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

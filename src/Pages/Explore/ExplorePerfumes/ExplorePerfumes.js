@@ -2,23 +2,36 @@ import React, { useEffect, useState } from "react";
 import ExplorePerfume from "../ExplorePerfume/ExplorePerfume";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { CARDS } from "../../styles/Cards.styles";
+import { Pagination } from "@mui/material";
 import styles from "./ExplorePerfumes.module.css";
 
 const ExplorePerfumes = () => {
   const [perfumes, setPerfumes] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [pageData, setPageData] = useState(0);
+  console.log(perfumes);
+  const dataSize = 6;
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/perfumes")
+    fetch(`http://localhost:5000/perfumes?page=${pageData}&&size=${dataSize}`)
       .then((res) => res.json())
-      .then((data) => setPerfumes(data));
-  }, []);
+      .then((data) => {
+        setPerfumes(data.perfumes);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / dataSize);
+        setPageCount(pageNumber);
+      });
+  }, [pageData]);
 
   return (
-    <div style={{ marginTop: "85px", color: "#333f47", marginBottom: "120px" }}>
-      <h2 className={`container mb-5 text-center ${styles.explore_title}`}>
-        Explore Our All ({perfumes.length}){" "}
-        {perfumes.length >= 2 ? "Perfumes" : "Perfume"} Here!
+    <div
+      style={{ marginTop: "115px", color: "#333f47", marginBottom: "120px" }}
+    >
+      <h2 className={`container mb-2 text-center ${styles.explore_title}`}>
+        Explore Our All
+        {perfumes.length >= 2 ? " Perfumes" : " Perfume"} Here!
       </h2>
+      <br />
       {perfumes.length ? (
         <div className="perfumes_display">
           <div className="all_perfumes">
@@ -32,6 +45,17 @@ const ExplorePerfumes = () => {
                 ))}
               </ul>
             </CARDS>
+          </div>
+          <br />
+          <br />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Pagination
+              count={pageCount}
+              onChange={(event, value) => setPageData(value - 1)}
+              size="large"
+              showFirstButton
+              showLastButton
+            />
           </div>
         </div>
       ) : (

@@ -1,6 +1,32 @@
+.review_page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    margin-top: 40px;
+    margin-bottom: 86px;
+}
+
+.review_img {
+    width: 50%;
+}
+
+.form_card {
+    width: 40%;
+}
+
+.form_box {
+    padding: 56px 36px 60px 36px !important;
+}
+
+.leave_review {
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+
 .add-a-review-title {
     font-size: 2.8rem;
-    color: #333f47;
 }
 
 input[type="radio"] {
@@ -8,12 +34,174 @@ input[type="radio"] {
 }
 
 .star {
+    width: 45px;
+    height: 45px;
+    margin: 8px;
     cursor: pointer;
     transition: color 200ms;
+}
+
+.review_textarea {
+    height: 145px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.textarea_field {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #444;
+    border: 1px solid #eee;
+    background: #e4e5e9;
+    padding: 14px;
+    font-size: 17px;
+    resize: none;
+    border-radius: 17px;
+}
+
+.review_btn {
+    height: 45px;
+    width: 100%;
+    margin: 24px 0;
+}
+
+.button_post_user_review {
+    height: 100%;
+    width: 100%;
+    color: white;
+    border: 1px solid #eee;
+    border-radius: 11px;
+    outline: none;
+    background: #394d61;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button_post_user_review:hover {
+    background: #2d3d4d;
+}
+
+@media screen and (max-width: 1080px) {
+    .review_img {
+        width: 45%;
+    }
+    .form_card {
+        width: 42%;
+    }
+    .leave_review {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .review_img {
+        width: 40%;
+    }
+    .form_card {
+        width: 47%;
+    }
+    .star {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media screen and (max-width: 835px) {
+    .review_img {
+        width: 42%;
+    }
+    .form_card {
+        width: 52%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .review_page {
+        flex-direction: column;
+        gap: 90px;
+    }
+    .review_img {
+        width: 70%;
+    }
+    .form_card {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .review_img {
+        width: 90%;
+    }
+    .form_card {
+        width: 90%;
+    }
+    .leave_review {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form_box {
+        padding: 56px 24px 50px 24px !important;
+    }
+    .review_img {
+        width: 96%;
+    }
+    .form_card {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .review_img {
+        width: 100%;
+    }
+    .form_card {
+        width: 100%;
+    }
+    .leave_review {
+        font-size: 1.8rem;
+    }
+    .star {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .add-a-review-title {
         font-size: 2.2rem;
+    }
+    .star {
+        width: 36px;
+        height: 36px;
+        margin: 6px;
+    }
+    .leave_review {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .form_box {
+        padding: 56px 20px 50px 20px !important;
+    }
+    .star {
+        margin: 4px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .star {
+        width: 32px;
+        height: 32px;
+        margin: 4px;
+    }
+    .leave_review {
+        font-size: 1.4rem;
     }
 }

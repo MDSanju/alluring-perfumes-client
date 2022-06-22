@@ -28,7 +28,7 @@ const LoginForm = () => {
   const goBackHome = useHistory();
 
   const handleGoBackHome = () => {
-    goBackHome.push("/");
+    goBackHome.push("/home");
   };
 
   const handleSignInUpPopUp = () => {

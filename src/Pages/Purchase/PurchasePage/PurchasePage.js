@@ -15,7 +15,7 @@ const PurchasePage = () => {
   const status = "Pending";
 
   useEffect(() => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/perfumes/${productId}`)
+    fetch(`http://localhost:5000/perfumes/${productId}`)
       .then((res) => res.json())
       .then((result) => setProduct(result));
   }, [productId]);
@@ -27,6 +27,7 @@ const PurchasePage = () => {
       email: user.email,
       status: status,
       productName: product.name,
+      productDescription: product.description,
       perfumePrice: product.price,
       address: data.address,
       phone: data.phone,
@@ -34,7 +35,7 @@ const PurchasePage = () => {
 
     const proceed = window.confirm("Please confirm to Purchase!");
     if (proceed) {
-      fetch("https://mysterious-brook-12035.herokuapp.com/orders", {
+      fetch("http://localhost:5000/orders", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -51,17 +52,22 @@ const PurchasePage = () => {
     }
   };
   return (
-    <div className="container" style={{ marginTop: "85px" }}>
+    <div className="container" style={{ marginTop: "132px" }}>
       {product._id ? (
         <div className="main-container">
           <div className="main-wrapper justify-content-center align-items-center">
             <div className="perfume_details">
               <div className="perfume_content">
-                <h2>{product.name}</h2>
+                <h2 style={{ color: "#111111" }}>{product.name}</h2>
                 <p className="perfume_detail_description">
                   {product.description}
                 </p>
-                <p className="perfume_price_detail">${product.price}</p>
+                <p
+                  className="perfume_price_detail"
+                  style={{ color: "#111111" }}
+                >
+                  ${product.price}
+                </p>
               </div>
               <div className="perfume_img">
                 <img src={product.img} className="w-100" alt="" />
@@ -91,8 +97,18 @@ const PurchasePage = () => {
               <h2 className="purchase-checkout-title">Checkout Now</h2>
               <div className="checkout-product-detail">
                 <img src={product.img} alt="" />
-                <p className="checkout-product-name">{product.name}</p>
-                <p className="checkout-product-price">${product.price}</p>
+                <p
+                  className="checkout-product-name"
+                  style={{ color: "#111111" }}
+                >
+                  {product.name}
+                </p>
+                <p
+                  className="checkout-product-price"
+                  style={{ color: "#111111" }}
+                >
+                  ${product.price}
+                </p>
               </div>
             </div>
 

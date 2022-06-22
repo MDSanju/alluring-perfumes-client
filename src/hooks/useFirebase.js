@@ -1,5 +1,6 @@
 import {
   getAuth,
+  getIdToken,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -18,6 +19,7 @@ const useFirebase = () => {
   const [authError, setAuthError] = useState("");
   const [regError, setRegError] = useState("");
   const [admin, setAdmin] = useState(false);
+  const [token, setToken] = useState("");
 
   const userRegister = (email, password, name, redirectUriHistory) => {
     setIsLoading(true);
@@ -64,6 +66,10 @@ const useFirebase = () => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        // JWT TOKEN
+        getIdToken(user).then((idToken) => {
+          setToken(idToken);
+        });
       } else {
         setUser({});
       }
@@ -87,7 +93,7 @@ const useFirebase = () => {
   // post to database
   const saveUserToDb = (email, displayName) => {
     const user = { email, displayName };
-    fetch("https://mysterious-brook-12035.herokuapp.com/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -98,13 +104,14 @@ const useFirebase = () => {
 
   // admin getting from database
   useEffect(() => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/users/${user.email}`)
+    fetch(`http://localhost:5000/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
   return {
     user,
+    token,
     admin,
     isLoading,
     authError,

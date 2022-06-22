@@ -8,7 +8,7 @@ const AddProduct = () => {
   const onSubmit = (data) => {
     const proceed = window.confirm("Please confirm to Add!");
     if (proceed) {
-      fetch("https://mysterious-brook-12035.herokuapp.com/perfumes", {
+      fetch("http://localhost:5000/perfumes", {
         method: "POST",
         headers: {
           "content-type": "application/json",

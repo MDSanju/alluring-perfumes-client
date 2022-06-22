@@ -1,5 +1,5 @@
 import React from "react";
-import footerLogoPNG from "../../../images/logo-magtimus.png";
+import footerLogoPNG from "../../../images/webLogo.png";
 import {
   BoxCopyRight,
   BoxFooter,
@@ -14,8 +14,8 @@ const Footer = () => {
     <FOOTER>
       <ContainerFooter>
         <BoxFooter>
-          <div>
-            <img src={footerLogoPNG} alt="" />
+          <div style={{ width: "68px", height: "68px" }}>
+            <img src={footerLogoPNG} style={{ width: "100%" }} alt="" />
           </div>
           <BoxFooterTerms>
             <p>

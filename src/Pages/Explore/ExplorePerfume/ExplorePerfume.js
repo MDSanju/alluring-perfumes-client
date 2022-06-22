@@ -37,7 +37,12 @@ const ExplorePerfume = ({ perfume }) => {
           <div
             style={{ marginLeft: "20px", marginTop: "3px", fontSize: "14px" }}
           >
-            <Link to={`/purchase/${_id}`}>See More</Link>
+            <Link
+              style={{ color: "#0d6efd", textDecoration: "underline" }}
+              to={`/purchase/${_id}`}
+            >
+              See More
+            </Link>
           </div>
 
           <small onClick={handlePurchase}>Purchase</small>

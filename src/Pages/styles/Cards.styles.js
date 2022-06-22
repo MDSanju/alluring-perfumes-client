@@ -16,7 +16,7 @@ export const CARDS = styled.div`
       /*overflow: hidden;*/
       border-radius: 20px;
       padding: 10px;
-      margin: 200px 10px 0 10px;
+      margin: 215px 10px 0 10px;
       position: relative;
       & h4 {
         position: absolute;
@@ -32,10 +32,10 @@ export const CARDS = styled.div`
 
 export const PICTURE = styled.picture`
   background: #eee;
-  padding: 5px;
+  padding: 32px;
   position: absolute;
   right: 0;
-  bottom: 45%;
+  bottom: 43%;
   width: 72%;
   height: 77%;
   border-radius: 50px 20px 0 20px;

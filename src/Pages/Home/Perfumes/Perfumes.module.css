@@ -1,27 +1,32 @@
 .section_title {
-    font-size: 3.4rem;
+    color: #4d525e;
+    font-family: 'Carter One', cursive;
+    font-size: 34px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 @media screen and (max-width: 992px) {
     .section_title {
-        font-size: 3rem;
+        font-size: 32px;
     }
 }
 
 @media screen and (max-width: 500px) {
     .section_title {
-        font-size: 2.4rem;
+        font-size: 30px;
     }
 }
 
 @media screen and (max-width: 415px) {
     .section_title {
-        font-size: 2.2rem;
+        font-size: 27px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .section_title {
-        font-size: 2rem;
+        font-size: 24px;
     }
 }

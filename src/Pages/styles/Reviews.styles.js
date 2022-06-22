@@ -37,13 +37,16 @@ export const SectionTitle = styled.div`
     margin: 0 auto;
   }
   & h2 {
+    text-transform: uppercase;
+    font-family: "Carter One", cursive;
     float: left;
     width: 100%;
     text-align: center;
-    color: #7d93b2;
+    color: #4d525e;
     font-size: 34px;
     font-weight: 800;
     position: relative;
+    letter-spacing: 2px;
   }
 `;
 
@@ -58,11 +61,11 @@ export const SectionSeparator = styled.span`
     left: 50%;
     top: 0;
     height: 3px;
-    width: 100px;
+    width: 250px;
     border-radius: 3px;
     z-index: 2;
-    background-color: #7d93b2;
-    margin-left: -50px;
+    background-color: #001c31;
+    margin-left: -125px;
   }
 `;
 

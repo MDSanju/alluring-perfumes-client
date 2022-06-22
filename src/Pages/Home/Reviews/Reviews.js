@@ -7,7 +7,6 @@ import {
   BodyRole,
   ReviewsContainer,
   Section,
-  SectionSeparator,
   SectionTitle,
   SwiperContainer,
   TestiAvatar,
@@ -27,7 +26,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/reviews")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -41,7 +40,6 @@ const Reviews = () => {
             <div className="container">
               <SectionTitle>
                 <h2>What Our Customers Are Saying!</h2>
-                <SectionSeparator></SectionSeparator>
               </SectionTitle>
             </div>
             <div className="testimonials-carousel-wrap">

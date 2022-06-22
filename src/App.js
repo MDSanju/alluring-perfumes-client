@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import NewDashboard from "./Pages/Dashboard/NewDashboard/NewDashboard";
 import Explore from "./Pages/Explore/Explore/Explore";
 import CouponCode from "./Pages/Home/CouponCode/CouponCode";
 import Home from "./Pages/Home/Home/Home";
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
+            </PrivateRoute>
+            <PrivateRoute path="/newDashboard">
+              <NewDashboard></NewDashboard>
             </PrivateRoute>
             <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>

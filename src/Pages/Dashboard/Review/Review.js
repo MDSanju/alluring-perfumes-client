@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import { FaStar } from "react-icons/fa";
+import reviewLogo from "../../../images/review_logo.png";
+import reviewBg from "../../../images/review-bg.png";
 import "./Review.css";
+
 // review page for user
 const Review = () => {
   const { user } = useAuth();
@@ -18,7 +21,7 @@ const Review = () => {
       rating: data.rating,
     };
 
-    fetch("https://mysterious-brook-12035.herokuapp.com/reviews", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,57 +37,76 @@ const Review = () => {
   };
 
   return (
-    <div
-      className="d-flex justify-content-center mt-5"
-      style={{ height: "100vh" }}
-    >
-      <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-        <h2 className="fw-bold text-center mb-4 add-a-review-title">
-          Add A Review!
-        </h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <textarea
-            type="text"
-            className="form-control mt-3 mb-3"
-            style={{ height: "100px" }}
-            placeholder="Write your review..."
-            required
-            {...register("review")}
-          />
-          <div className="d-flex align-items-center">
-            <span className="fs-4 me-3">Ratings:</span>
-            {[...Array(5)].map((star, i) => {
-              const ratingValue = i + 1;
-              return (
-                <label>
-                  <input
-                    {...register("rating")}
-                    type="radio"
-                    name="rating"
-                    value={ratingValue}
-                    onClick={() => setRating(ratingValue)}
-                    id="field-star"
-                  />
-                  <FaStar
-                    className="star"
-                    color={
-                      ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
-                    }
-                    size={25}
-                    onMouseEnter={() => setHover(ratingValue)}
-                    onMouseLeave={() => setHover(null)}
-                  />
-                </label>
-              );
-            })}
+    <div className="review_page">
+      <div className="review_img">
+        <img style={{ width: "100%" }} src={reviewBg} alt="" />
+      </div>
+      <div className="form_card">
+        <div className="box form_box">
+          <div style={{ width: "100px", height: "100%", margin: "0 auto" }}>
+            <img
+              style={{
+                width: "100%",
+                height: "100%",
+                paddingBottom: "18px",
+              }}
+              src={reviewLogo}
+              alt=""
+            />
           </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="d-flex justify-content-center align-items-center mb-4">
+              {[...Array(5)].map((star, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <label>
+                    <input
+                      {...register("rating")}
+                      type="radio"
+                      name="rating"
+                      value={ratingValue}
+                      onClick={() => setRating(ratingValue)}
+                      id="field-star"
+                    />
+                    <FaStar
+                      className="star"
+                      color={
+                        ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"
+                      }
+                      onMouseEnter={() => setHover(ratingValue)}
+                      onMouseLeave={() => setHover(null)}
+                    />
+                  </label>
+                );
+              })}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                color: "#eaeaea",
+                letterSpacing: "1.5px",
+              }}
+            >
+              <h2 className="leave_review">Leave Your Review</h2>
+            </div>
+            <div className="review_textarea mt-3 mb-3">
+              <textarea
+                type="text"
+                className="textarea_field"
+                placeholder="Write your review..."
+                required
+                {...register("review")}
+              />
+            </div>
 
-          <input
-            type="submit"
-            className="btn btn-primary w-100 mt-3"
-            value="Add Your Review"
-          />
-        </form>
+            <div className="review_btn">
+              <button type="submit" className="button_post_user_review">
+                post
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -9,13 +9,13 @@ const ManageAllOrders = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/orders")
+    fetch("http://localhost:5000/orders")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, []);
 
   const handleUpdateStatus = (id) => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
+    fetch(`http://localhost:5000/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

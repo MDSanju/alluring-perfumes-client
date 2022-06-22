@@ -8,7 +8,7 @@ const Payment = () => {
   console.log(booking);
 
   useEffect(() => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${paymentId}`)
+    fetch(`http://localhost:5000/orders/${paymentId}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
   }, [paymentId]);
