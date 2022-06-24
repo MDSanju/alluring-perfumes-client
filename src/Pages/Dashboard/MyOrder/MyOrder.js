@@ -61,7 +61,7 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
             </div>
             <div className="hqdDkf">
               {status === "Pending"
-                ? "Please pay to be shipped this order"
+                ? "Make payment to be shipped this order"
                 : "This order has already been shipped"}
               !
             </div>

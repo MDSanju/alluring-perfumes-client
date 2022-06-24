@@ -1,29 +1,51 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import { IoSearchOutline } from "react-icons/io5";
-import { styled } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
 import { Button } from "@mui/material";
 import NoOrderFound from "../../../images/no-orders.png";
 import {
+  MyOrderPageTitle,
   NoOrderFoundImage,
   NoOrderFoundText,
 } from "../../styles/Random.styles";
+import ScaleLoader from "react-spinners/ScaleLoader";
 import { useHistory } from "react-router-dom";
 import MyOrder from "../MyOrder/MyOrder";
+import Pagination from "@mui/material/Pagination";
 import "./MyOrders.css";
 
 // user can see own orders(my orders page)
 const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
+  const [totalOrders, setTotalOrders] = useState([]);
+  console.log(totalOrders.length);
   const history = useHistory();
 
+  // pagination states
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+
+  // page data size
+  const size = 3;
+
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${user.email}`)
+    fetch(
+      `http://localhost:5000/orders/${user.email}?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
-      .then((data) => setOrders(data));
-  }, [user.email]);
+      .then((data) => {
+        setOrders(data.orders);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
+      });
+  }, [user.email, page]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/orders/totalOrders/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setTotalOrders(data));
+  }, [user.email, orders]);
 
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm(
@@ -48,83 +70,60 @@ const MyOrders = () => {
     history.push("/explore");
   };
 
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#ffffff",
-    "&:hover": {
-      backgroundColor: "#f9f9f9",
-      transition: "0.3s ease",
-    },
-    marginRight: 0,
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: 0,
-      width: "300px",
-    },
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "rgb(63, 63, 70)",
-    fontSize: "1rem",
-    lineHeight: "1.5",
-    letterSpacing: "normal",
-    fontWeight: "400",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1.5, 1, 1.5, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("md")]: {
-        width: "26ch",
-      },
-    },
-  }));
-
   return (
     <div style={{ marginTop: "36px" }}>
-      {orders.length ? (
+      {totalOrders.length ? (
         <>
-          <div className="orders_placed_title">
-            {orders.length} {orders.length <= 1 ? "order has" : "orders have"}{" "}
-            been placed
+          <MyOrderPageTitle>
+            <div className="orders_placed_title">
+              {totalOrders.length}{" "}
+              {totalOrders.length <= 1 ? "order has" : "orders have"} been
+              placed
+            </div>
+            <Button onClick={handleGoToOrder} variant="text">
+              Order
+            </Button>
+          </MyOrderPageTitle>
+          {orders.length ? (
+            <>
+              {orders.map((order) => (
+                <MyOrder
+                  key={order._id}
+                  order={order}
+                  handleDeleteOrder={handleDeleteOrder}
+                />
+              ))}
+            </>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "45px",
+              }}
+            >
+              <ScaleLoader color={"#003665"} size={85} />
+            </div>
+          )}
+          <div
+            style={{
+              marginTop: "3rem",
+              marginBottom: "1rem",
+              display: "flex",
+              justifyContent: "right",
+            }}
+          >
+            <Pagination
+              count={pageCount}
+              onChange={(event, value) => setPage(value - 1)}
+            />
           </div>
-
-          <Search className="search_shaddow ">
-            <SearchIconWrapper>
-              <IoSearchOutline color="#868282" />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search by product name…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-
-          {orders.map((order) => (
-            <MyOrder
-              key={order._id}
-              order={order}
-              handleDeleteOrder={handleDeleteOrder}
-            />
-          ))}
         </>
       ) : (
         <NoOrderFoundImage>
           <img src={NoOrderFound} alt="" />
           <div>
-            <NoOrderFoundText>no order found yet</NoOrderFoundText>
+            <NoOrderFoundText>no orders found!</NoOrderFoundText>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Button onClick={handleGoToOrder} variant="text">
                 Order Now

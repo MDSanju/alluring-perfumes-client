@@ -7,6 +7,7 @@ import TopNav from "../components/topnav/TopNav";
 import AdminRoute from "../../../Login/AdminRoute/AdminRoute";
 import Review from "../../Review/Review";
 import MyOrders from "../../MyOrders/MyOrders";
+import Pay from "../../Pay/Pay";
 import "./main-layout.scss";
 
 const MainLayout = () => {
@@ -26,7 +27,7 @@ const MainLayout = () => {
               <MyOrders />
             </Route>
             <Route path="/newDashboard/pay">
-              <Blank />
+              <Pay />
             </Route>
             <Route path="/newDashboard/review">
               <Review />

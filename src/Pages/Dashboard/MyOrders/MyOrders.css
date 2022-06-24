@@ -1,5 +1,4 @@
 .orders_placed_title {
-    padding-bottom: 1rem;
     color: rgb(82, 82, 91);
     font-size: 1rem;
     line-height: 1.5;
@@ -8,7 +7,6 @@
 }
 
 .search_shaddow {
-    margin-bottom: 1.2rem;
     box-shadow: rgb(0 0 0 / 7%) 0px 1px 1px, rgb(0 0 0 / 8%) 0px 1px 2px, rgb(0 0 0 / 10%) 0px 2px 2px, rgb(0 0 0 / 5%) 0px 0px 8px;
 }
 
@@ -32,7 +30,7 @@
 
 .product_details-with_image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
     min-width: 300px;
@@ -40,7 +38,7 @@
 
 .user_details-with_image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.3rem;
     min-width: 300px;
@@ -48,7 +46,7 @@
 
 .status_details-with_delete_icon {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.7rem;
     min-width: 300px;
