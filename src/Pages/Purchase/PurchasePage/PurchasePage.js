@@ -23,6 +23,7 @@ const PurchasePage = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     const submitOrder = {
+      image: product.img,
       displayName: user.displayName,
       email: user.email,
       status: status,

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MyOrderPageTitle = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding-bottom: 1rem;
 `;
 
@@ -41,6 +41,7 @@ export const NoOrderFoundText = styled.div`
   line-height: 1.33333;
   letter-spacing: 0.1rem;
   font-weight: 500;
+  text-align: center;
 `;
 
 export const OrderSearchFeild = styled.div`

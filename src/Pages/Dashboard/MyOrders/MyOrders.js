@@ -71,12 +71,14 @@ const MyOrders = () => {
   };
 
   return (
-    <div style={{ marginTop: "36px" }}>
+    <div style={{ marginTop: "16px" }}>
       {totalOrders.length ? (
         <>
           <MyOrderPageTitle>
             <div className="orders_placed_title">
-              {totalOrders.length}{" "}
+              <span style={{ color: "#e45959", fontSize: "32px" }}>
+                {totalOrders.length}
+              </span>{" "}
               {totalOrders.length <= 1 ? "order has" : "orders have"} been
               placed
             </div>

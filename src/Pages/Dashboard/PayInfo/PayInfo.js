@@ -1,19 +1,19 @@
 import React from "react";
-import { MdDelete, MdOutlineCancel } from "react-icons/md";
+import { useHistory } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { Button } from "@mui/material";
+import priceImg from "../../../images/chargeback.png";
 
-const MyOrder = ({ order, handleDeleteOrder }) => {
-  const {
-    _id,
-    image,
-    productName,
-    productDescription,
-    displayName,
-    address,
-    status,
-  } = order;
+const PayInfo = ({ order }) => {
+  const history = useHistory();
+  const { _id, image, productName, productDescription, perfumePrice, status } =
+    order;
   const description = productDescription.slice(0, 28);
+
+  const makePayment = (id) => {
+    history.push(`/newDashboard/paying/${id}`);
+  };
 
   const CustomTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} arrow classes={{ popper: className }} />
@@ -25,6 +25,7 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
       backgroundColor: theme.palette.common.black,
     },
   }));
+
   return (
     <div className="one_order_box">
       <div className="product_details-with_image">
@@ -36,17 +37,25 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
           <div className="drShxo">{description}...</div>
         </div>
       </div>
-      <div className="user_details-with_image">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "baseline",
+          gap: "0.2rem",
+          minWidth: "300px",
+        }}
+      >
         <div style={{ width: "64px", height: "64px" }}>
-          <img
-            style={{ width: "100%" }}
-            src="https://i.ibb.co/SrVLk6V/buyer.png"
-            alt=""
-          />
+          <img style={{ width: "100%" }} src={priceImg} alt="" />
         </div>
         <div className="fxImpW">
-          <div className="hqdDkf">{address}</div>
-          <div className="iDXxia">{displayName}</div>
+          <div
+            className="zdAtl"
+            style={{ color: "#686de0", fontWeight: "800", fontSize: "1.5rem" }}
+          >
+            ${perfumePrice}
+          </div>
         </div>
       </div>
       <div className="status_details-with_delete_icon">
@@ -72,21 +81,17 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
         </div>
 
         {status === "Pending" ? (
-          <CustomTooltip title="cancel order">
-            <div
-              onClick={() => handleDeleteOrder(_id)}
-              className="delete_forever_icon"
-            >
-              <MdOutlineCancel size={24} />
+          <CustomTooltip title="click to pay">
+            <div>
+              <Button onClick={() => makePayment(_id)} variant="text">
+                Pay
+              </Button>
             </div>
           </CustomTooltip>
         ) : (
-          <CustomTooltip title="delete history">
-            <div
-              onClick={() => handleDeleteOrder(_id)}
-              className="delete_forever_icon"
-            >
-              <MdDelete size={24} />
+          <CustomTooltip title="already paid">
+            <div>
+              <Button disabled>Paid</Button>
             </div>
           </CustomTooltip>
         )}
@@ -95,4 +100,4 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
   );
 };
 
-export default MyOrder;
+export default PayInfo;

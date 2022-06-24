@@ -8,6 +8,7 @@ import AdminRoute from "../../../Login/AdminRoute/AdminRoute";
 import Review from "../../Review/Review";
 import MyOrders from "../../MyOrders/MyOrders";
 import Pay from "../../Pay/Pay";
+import Payment from "../../Payment/Payment";
 import "./main-layout.scss";
 
 const MainLayout = () => {
@@ -31,6 +32,9 @@ const MainLayout = () => {
             </Route>
             <Route path="/newDashboard/review">
               <Review />
+            </Route>
+            <Route path="/newDashboard/paying/:paymentId">
+              <Payment />
             </Route>
             <AdminRoute path="/newDashboard/manageAllOrders">
               <Blank />
