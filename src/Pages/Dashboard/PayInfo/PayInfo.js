@@ -7,8 +7,15 @@ import priceImg from "../../../images/chargeback.png";
 
 const PayInfo = ({ order }) => {
   const history = useHistory();
-  const { _id, image, productName, productDescription, perfumePrice, status } =
-    order;
+  const {
+    _id,
+    image,
+    productName,
+    productDescription,
+    perfumePrice,
+    status,
+    payment,
+  } = order;
   const description = productDescription.slice(0, 28);
 
   const makePayment = (id) => {
@@ -80,18 +87,18 @@ const PayInfo = ({ order }) => {
           </div>
         </div>
 
-        {status === "Pending" ? (
+        {status === "Shipped" || payment ? (
+          <CustomTooltip title="already paid">
+            <div>
+              <Button disabled>Paid</Button>
+            </div>
+          </CustomTooltip>
+        ) : (
           <CustomTooltip title="click to pay">
             <div>
               <Button onClick={() => makePayment(_id)} variant="text">
                 Pay
               </Button>
-            </div>
-          </CustomTooltip>
-        ) : (
-          <CustomTooltip title="already paid">
-            <div>
-              <Button disabled>Paid</Button>
             </div>
           </CustomTooltip>
         )}

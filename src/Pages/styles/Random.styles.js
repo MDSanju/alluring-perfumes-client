@@ -70,3 +70,88 @@ export const OrderSearchBarIcon = styled.div`
     width: 100%;
   }
 `;
+
+
+// checkout form
+export const CardBody = styled.div`
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 75px;
+`;
+
+export const CheckoutContainer = styled.div`
+    width: 750px;
+    height: 600px;
+    border: 1px solid;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    justify-content:space-around;
+    & h1 {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
+`;
+
+export const FirstCheckoutRow = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const RowOwner = styled.div`
+    width: 100%;
+    margin-right: 40px;
+`;
+
+export const CheckoutInput = styled.div`
+    border: 1px solid #999;
+    & input {
+        width: 100%;
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: #424770;
+        border:none;
+        outline: none;
+        padding: 10px 10px 10px 10px;
+        &::placeholder{
+          color: #aab7c4 !important;
+    }
+    }
+    
+`;
+
+export const CheckoutDateSelectionInput = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const CheckoutButton = styled.div`
+    & button {
+        background-color: blueviolet;
+        width: 100%;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 18px;
+        font-family: 'Poppins', sans-serif;
+        border: none;
+        transition: 0.5s;
+        &:hover{
+            background-color: dodgerblue;
+        }
+    }
+`;
+
+export const CardImages =styled.div`
+    & img {
+        width: 100px;
+    }
+`;
