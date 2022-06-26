@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import NewDashboard from "./Pages/Dashboard/NewDashboard/NewDashboard";
 import Explore from "./Pages/Explore/Explore/Explore";
-import CouponCode from "./Pages/Home/CouponCode/CouponCode";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import NoMatch from "./Pages/NoMatch/NoMatch";
+import OrderSuccess from "./Pages/OrderSuccess/OrderSuccess";
 import Purchase from "./Pages/Purchase/Purchase/Purchase";
+import "./App.css";
 
 function App() {
   return (
@@ -38,8 +38,8 @@ function App() {
             <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>
             </PrivateRoute>
-            <PrivateRoute path="/couponCode">
-              <CouponCode></CouponCode>
+            <PrivateRoute path="/orderSuccess">
+              <OrderSuccess></OrderSuccess>
             </PrivateRoute>
             <Route path="*">
               <NoMatch></NoMatch>

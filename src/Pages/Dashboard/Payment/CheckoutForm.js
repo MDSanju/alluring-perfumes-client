@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import Alert from "@mui/material/Alert";
 import masterCard from "../../../images/master-card.png";
@@ -28,6 +29,7 @@ const CheckoutForm = ({ booking }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
+  const history = useHistory();
 
   //   error msg show on UI
   const [uiError, setUiError] = useState("");
@@ -131,6 +133,10 @@ const CheckoutForm = ({ booking }) => {
       color: "#aab7c4",
     },
   };
+
+  if (success) {
+    history.push("/newDashboard/paidSuccessfully");
+  }
 
   return (
     <CardBody>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import ScaleLoader from "react-spinners/ScaleLoader";
@@ -9,7 +10,7 @@ import "./PurchasePage.css";
 const PurchasePage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
-  console.log(product);
+  const history = useHistory();
   const { user } = useAuth();
   // default status
   const status = "Pending";
@@ -48,6 +49,7 @@ const PurchasePage = () => {
           if (result.insertedId) {
             alert("Purchased successfully... Thank you!");
             reset();
+            history.push("/orderSuccess");
           }
         });
     }

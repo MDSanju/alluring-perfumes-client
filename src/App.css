@@ -29,3 +29,54 @@
     outline: none !important;
     padding: 14px 0px 14px 10px !important;
 }
+
+@media screen and (max-width: 667px) {
+    #cvc {
+        min-width: 520px !important;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    #cvc {
+        min-width: 470px !important;
+    }
+    #card-expiry {
+        min-width: 470px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #cvc {
+        min-width: 400px !important;
+    }
+    #card-expiry {
+        min-width: 400px !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #cvc {
+        min-width: 310px !important;
+    }
+    #card-expiry {
+        min-width: 310px !important;
+    }
+}
+
+@media screen and (max-width: 387px) {
+    #cvc {
+        min-width: 280px !important;
+    }
+    #card-expiry {
+        min-width: 280px !important;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #cvc {
+        min-width: 264px !important;
+    }
+    #card-expiry {
+        min-width: 264px !important;
+    }
+}

@@ -9,6 +9,8 @@ import Review from "../../Review/Review";
 import MyOrders from "../../MyOrders/MyOrders";
 import Pay from "../../Pay/Pay";
 import Payment from "../../Payment/Payment";
+import PaidSuccessfully from "../../PaidSuccessfully/PaidSuccessfully";
+import ManageProducts from "../../ManageProducts/ManageProducts";
 import "./main-layout.scss";
 
 const MainLayout = () => {
@@ -36,6 +38,9 @@ const MainLayout = () => {
             <Route path="/newDashboard/paying/:paymentId">
               <Payment />
             </Route>
+            <Route path="/newDashboard/paidSuccessfully">
+              <PaidSuccessfully />
+            </Route>
             <AdminRoute path="/newDashboard/manageAllOrders">
               <Blank />
             </AdminRoute>
@@ -46,7 +51,7 @@ const MainLayout = () => {
               <Blank />
             </AdminRoute>
             <AdminRoute path="/newDashboard/manageProducts">
-              <Blank />
+              <ManageProducts />
             </AdminRoute>
             <AdminRoute path="/newDashboard/manageTabs">
               <Blank />
