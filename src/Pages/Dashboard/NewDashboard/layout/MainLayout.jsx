@@ -12,6 +12,7 @@ import Payment from "../../Payment/Payment";
 import PaidSuccessfully from "../../PaidSuccessfully/PaidSuccessfully";
 import ManageProducts from "../../ManageProducts/ManageProducts";
 import "./main-layout.scss";
+import ManageAllOrders from "../../ManageAllOrders/ManageAllOrders";
 
 const MainLayout = () => {
   return (
@@ -42,7 +43,7 @@ const MainLayout = () => {
               <PaidSuccessfully />
             </Route>
             <AdminRoute path="/newDashboard/manageAllOrders">
-              <Blank />
+              <ManageAllOrders />
             </AdminRoute>
             <AdminRoute path="/newDashboard/addProduct">
               <Blank />

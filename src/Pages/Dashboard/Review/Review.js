@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { FaStar } from "react-icons/fa";
 import reviewLogo from "../../../images/review_logo.png";
 import reviewBg from "../../../images/review-bg.png";
+import { toast, ToastContainer } from "react-toastify";
 import "./Review.css";
 
 // review page for user
@@ -11,6 +12,7 @@ const Review = () => {
   const { user } = useAuth();
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  const [successfullyAdded, setSuccessfullyAdded] = useState(false);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -20,6 +22,17 @@ const Review = () => {
       review: data.review,
       rating: data.rating,
     };
+
+    const notify = () =>
+      toast.success("Your review successfully added!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
     fetch("http://localhost:5000/reviews", {
       method: "POST",
@@ -32,12 +45,27 @@ const Review = () => {
       .then((result) => {
         if (result.insertedId) {
           reset();
+          setSuccessfullyAdded(true);
+          notify();
         }
       });
   };
 
   return (
     <div className="review_page">
+      {successfullyAdded && (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      )}
       <div className="review_img">
         <img style={{ width: "100%" }} src={reviewBg} alt="" />
       </div>

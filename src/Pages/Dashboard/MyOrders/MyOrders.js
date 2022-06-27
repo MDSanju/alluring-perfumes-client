@@ -11,6 +11,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import { useHistory } from "react-router-dom";
 import MyOrder from "../MyOrder/MyOrder";
 import Pagination from "@mui/material/Pagination";
+import { toast, ToastContainer } from "react-toastify";
 import "./MyOrders.css";
 
 // user can see own orders(my orders page)
@@ -18,7 +19,7 @@ const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [totalOrders, setTotalOrders] = useState([]);
-  console.log(totalOrders.length);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
   const history = useHistory();
 
   // pagination states
@@ -27,6 +28,17 @@ const MyOrders = () => {
 
   // page data size
   const size = 3;
+
+  const notify = () =>
+    toast.success("Remove order confirmed!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
 
   useEffect(() => {
     fetch(
@@ -58,7 +70,8 @@ const MyOrders = () => {
         .then((res) => res.json())
         .then((result) => {
           if (result.deletedCount) {
-            alert("Remove confirm!");
+            setDeleteSuccess(true);
+            notify();
             const remainingOrders = orders.filter((order) => order._id !== id);
             setOrders(remainingOrders);
           }
@@ -72,6 +85,19 @@ const MyOrders = () => {
 
   return (
     <div style={{ marginTop: "16px" }}>
+      {deleteSuccess && (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      )}
       {totalOrders.length ? (
         <>
           <MyOrderPageTitle>
