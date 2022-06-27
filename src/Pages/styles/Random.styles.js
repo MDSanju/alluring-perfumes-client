@@ -209,6 +209,26 @@ export const PaidOrderButtons = styled.div`
   }
 `;
 
+export const ShippedButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+  & button {
+    width: 120px;
+    background-color: #2e86de;
+    color: white;
+    padding: 8px 0px 8px 0px;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      background-color: #255482;
+      transition: 0.3s ease;
+    }
+  }
+`;
+
 // checkout form
 export const CardBody = styled.div`
   height: 100vh;
