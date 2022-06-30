@@ -13,6 +13,8 @@ import PaidSuccessfully from "../../PaidSuccessfully/PaidSuccessfully";
 import ManageProducts from "../../ManageProducts/ManageProducts";
 import ManageAllOrders from "../../ManageAllOrders/ManageAllOrders";
 import Shipped from "../../Shipped/Shipped";
+import AddProduct from "../../AddProduct/AddProduct";
+import MakeAdmin from "../../MakeAdmin/MakeAdmin";
 import "./main-layout.scss";
 
 const MainLayout = () => {
@@ -50,10 +52,10 @@ const MainLayout = () => {
               <Shipped />
             </AdminRoute>
             <AdminRoute path="/newDashboard/addProduct">
-              <Blank />
+              <AddProduct />
             </AdminRoute>
             <AdminRoute path="/newDashboard/makeAdmin">
-              <Blank />
+              <MakeAdmin />
             </AdminRoute>
             <AdminRoute path="/newDashboard/manageProducts">
               <ManageProducts />

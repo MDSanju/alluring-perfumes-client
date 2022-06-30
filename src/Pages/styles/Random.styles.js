@@ -340,3 +340,200 @@ export const CardImages = styled.div`
     }
   }
 `;
+
+
+// Add A New Order Styles
+export const AddProductFullPage = styled.div`
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    margin-top: 40px;
+    margin-bottom: 86px;
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+      gap: 50px;
+    }
+`;
+
+export const AddProductPageImage = styled.div`
+  width: 50%;
+  & img{
+    width: 100%;
+  }
+  @media screen and (max-width: 1080px) {
+      width: 75%;
+    }
+  @media screen and (max-width: 768px) {
+      width: 85%;
+    }
+    @media screen and (max-width: 650px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 550px) {
+      width: 100%;
+    }
+`;
+
+export const FormCard = styled.div`
+  width: 40%;
+  @media screen and (max-width: 1080px) {
+      width: 60%;
+    }
+  @media screen and (max-width: 768px) {
+      width: 70%;
+    }
+  @media screen and (max-width: 650px) {
+      width: 80%;
+    }
+  @media screen and (max-width: 550px) {
+      width: 90%;
+    }
+  @media screen and (max-width: 500px) {
+      width: 96%;
+    }
+  @media screen and (max-width: 400px) {
+      width: 96%;
+    }
+`;
+
+export const CardBox = styled.div`
+  padding: 38px 36px 64px 36px !important;
+`;
+
+export const AddProductCardBoxIcon = styled.div`
+  width: 178px;
+  height: 100%;
+  margin: 0 auto;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: 500px) {
+      width: 156px;
+    }
+  @media screen and (max-width: 440px) {
+      width: 132px;
+    }
+  @media screen and (max-width: 368px) {
+      width: 124px;
+    }
+  @media screen and (max-width: 340px) {
+      width: 116px;
+    }
+`;
+
+export const AddProductCardTitle = styled.h3`
+  font-size: 2.4rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #d6d6d6;
+    @media screen and (max-width: 500px) {
+      font-size: 2.2rem;
+    }
+  @media screen and (max-width: 440px) {
+      font-size: 2.1rem;
+    }
+  @media screen and (max-width: 368px) {
+      font-size: 2rem;
+    }
+  @media screen and (max-width: 340px) {
+      font-size: 1.8rem;
+    }
+`;
+
+export const AddProductSubmitBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  & .add_product-submit_btn {
+    width: 218px !important;
+    border-radius: 100px !important;
+    @media screen and (max-width: 480px) {
+      width: 175px !important;
+    }
+    @media screen and (max-width: 382px) {
+      width: 155px !important;
+    }
+    @media screen and (max-width: 352px) {
+      width: 142px !important;
+    }
+  }
+`;
+
+
+
+// Make Admin Styles
+export const MakeAdminFullPage = styled.div`
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin-top: 40px;
+    margin-bottom: 86px;
+    @media screen and (max-width: 1080px) {
+      flex-direction: column;
+      gap: 36px;
+    }
+`;
+
+export const MakeAdminPageImage = styled.div`
+  width: 58%;
+  & img{
+    width: 100%;
+  }
+  @media screen and (max-width: 1080px) {
+      width: 100%;
+    }
+`;
+
+export const MakeAdminCardBoxIcon = styled.div`
+  width: 136px;
+  height: 100%;
+  margin: 0 auto;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: 500px) {
+      width: 124px;
+    }
+  @media screen and (max-width: 440px) {
+      width: 110px;
+    }
+  @media screen and (max-width: 340px) {
+      width: 100px;
+    }
+`;
+
+export const MakeAdminCardTitle = styled.h3`
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-top: 28px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #444444;
+  @media screen and (max-width: 440px) {
+      font-size: 2rem;
+    }
+`;
+
+export const MakeAdminSubmitBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  & .make_admin-submit_btn {
+    width: 232px !important;
+    border-radius: 100px !important;
+    @media screen and (max-width: 480px) {
+      width: 175px !important;
+    }
+    @media screen and (max-width: 382px) {
+      width: 155px !important;
+    }
+    @media screen and (max-width: 352px) {
+      width: 142px !important;
+    }
+  }
+`;
