@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import icon_make_admin from "../../../images/make-admin-icon.png";
 import bg_make_admin from "../../../images/make-admin-bg.png";
 import SendIcon from "@mui/icons-material/Send";
+import { toast, ToastContainer } from "react-toastify";
 import {
   Button,
   FormControl,
@@ -25,6 +26,31 @@ import "./MakeAdmin.css";
 // make admin page for admin
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const notifySuccess = () =>
+    toast.success("Made admin successfully!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+  const notifyError = () =>
+    toast.error("Wrong Person!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   const onSubmit = (data) => {
     const proceed = window.confirm("Please confirm to Make user to Admin!");
     if (proceed) {
@@ -40,10 +66,12 @@ const MakeAdmin = () => {
         .then((data) => {
           if (data.modifiedCount) {
             reset();
-            alert("Made admin successfully!");
+            setSuccess(true);
+            notifySuccess();
           } else {
             reset();
-            alert("Wrong Person!");
+            setError(true);
+            notifyError();
           }
         });
     }
@@ -77,6 +105,32 @@ const MakeAdmin = () => {
     // </div>
 
     <MakeAdminFullPage>
+      {success && (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      )}
+      {error && (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      )}
       <MakeAdminPageImage>
         <img src={bg_make_admin} alt="" />
       </MakeAdminPageImage>

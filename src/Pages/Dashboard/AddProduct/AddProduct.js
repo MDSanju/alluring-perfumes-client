@@ -45,8 +45,10 @@ const AddProduct = () => {
     //       }
     //     });
     // }
-    console.log(data.files[0]);
-    reset();
+    console.log(data);
+    const formData = new FormData();
+
+    formData.append("name", data.name);
   };
   // react hook form used
   return (
