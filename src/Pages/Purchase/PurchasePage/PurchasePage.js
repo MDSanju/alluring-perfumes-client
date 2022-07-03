@@ -23,26 +23,23 @@ const PurchasePage = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    const submitOrder = {
-      image: product.img,
-      displayName: user.displayName,
-      email: user.email,
-      status: status,
-      productName: product.name,
-      productDescription: product.description,
-      perfumePrice: product.price,
-      address: data.address,
-      phone: data.phone,
-    };
+    const formData = new FormData();
+
+    formData.append("image", product.img);
+    formData.append("displayName", user.displayName);
+    formData.append("email", user.email);
+    formData.append("status", status);
+    formData.append("productName", product.name);
+    formData.append("productDescription", product.description);
+    formData.append("perfumePrice", product.price);
+    formData.append("address", data.address);
+    formData.append("phone", data.phone);
 
     const proceed = window.confirm("Please confirm to Purchase!");
     if (proceed) {
       fetch("http://localhost:5000/orders", {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(submitOrder),
+        body: formData,
       })
         .then((res) => res.json())
         .then((result) => {
@@ -73,7 +70,11 @@ const PurchasePage = () => {
                 </p>
               </div>
               <div className="perfume_img">
-                <img src={product.img} className="w-100" alt="" />
+                <img
+                  src={`data:image/png;base64,${product.img}`}
+                  className="w-100"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -99,7 +100,7 @@ const PurchasePage = () => {
             <div className="column detail-wrapper">
               <h2 className="purchase-checkout-title">Checkout Now</h2>
               <div className="checkout-product-detail">
-                <img src={product.img} alt="" />
+                <img src={`data:image/png;base64,${product.img}`} alt="" />
                 <p
                   className="checkout-product-name"
                   style={{ color: "#111111" }}

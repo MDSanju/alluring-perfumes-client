@@ -24,7 +24,11 @@ const ManageProduct = ({ product, handleDeleteProduct }) => {
     <div className="one_order_box">
       <div className="product_details-with_image">
         <div style={{ width: "50px", height: "50px" }}>
-          <img style={{ width: "100%" }} src={img} alt="" />
+          <img
+            style={{ width: "100%" }}
+            src={`data:image/png;base64,${img}`}
+            alt=""
+          />
         </div>
         <div className="fxImpW">
           <div className="zdAtl" style={{ color: "#d63031" }}>

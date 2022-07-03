@@ -221,7 +221,7 @@ const CheckoutForm = ({ booking }) => {
                 alignItems: "center",
               }}
             >
-              <ScaleLoader color={uiError ? "#EA2027" : "#365b38"} />
+              <ScaleLoader color={uiError ? "#EA2027" : "#009432"} />
             </div>
           )}
         </form>

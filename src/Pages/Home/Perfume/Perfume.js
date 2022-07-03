@@ -20,7 +20,7 @@ const Perfume = ({ perfume }) => {
     <div>
       <li data-category="" data-price="">
         <PICTURE>
-          <img src={img} alt="" />
+          <img src={`data:image/png;base64,${img}`} alt="" />
         </PICTURE>
         <CardDetail>
           <p>

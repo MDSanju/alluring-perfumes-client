@@ -77,33 +77,6 @@ const MakeAdmin = () => {
     }
   };
   return (
-    // <div
-    //   className="d-flex justify-content-center"
-    //   style={{ marginTop: "50px", marginBottom: "150px" }}
-    // >
-    //   <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-    //     <h2 className="text-center fw-bold mb-5 make-admin-input-title">
-    //       Make a new Admin!
-    //     </h2>
-    //     <form onSubmit={handleSubmit(onSubmit)}>
-    //       <input
-    //         type="email"
-    //         className="form-control mt-3"
-    //         id="floatingInput"
-    //         placeholder="Write email"
-    //         required
-    //         {...register("email")}
-    //       />
-
-    //       <input
-    //         className="btn btn-primary w-100 mt-4"
-    //         type="submit"
-    //         value="Make Admin"
-    //       />
-    //     </form>
-    //   </div>
-    // </div>
-
     <MakeAdminFullPage>
       {success && (
         <ToastContainer

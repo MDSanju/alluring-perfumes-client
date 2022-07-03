@@ -29,7 +29,11 @@ const MyOrder = ({ order, handleDeleteOrder }) => {
     <div className="one_order_box">
       <div className="product_details-with_image">
         <div style={{ width: "50px", height: "50px" }}>
-          <img style={{ width: "100%" }} src={image} alt="" />
+          <img
+            style={{ width: "100%" }}
+            src={`data:image/png;base64,${image}`}
+            alt=""
+          />
         </div>
         <div className="fxImpW">
           <div className="zdAtl">{productName}</div>

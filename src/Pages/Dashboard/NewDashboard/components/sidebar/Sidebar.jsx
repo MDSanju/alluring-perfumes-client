@@ -49,11 +49,6 @@ const Sidebar = () => {
           setActiveIndex(curPath.length === 0 ? 0 : activeItem);
         }
       }
-
-      //   const activeItem = sidebarNav.findIndex(
-      //     (item) => item.section === curPath
-      //   );
-      //   setActiveIndex(curPath.length === 0 ? 0 : activeItem);
     }
   }, [admin, location]);
 

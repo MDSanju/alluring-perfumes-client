@@ -57,13 +57,17 @@ const Pay = () => {
       {totalOrders.length ? (
         <>
           <MyOrderPageTitle>
-            <div className="orders_placed_title">
-              <span style={{ color: "#e45959", fontSize: "32px" }}>
-                {pendingOrders.length}
-              </span>{" "}
-              {pendingOrders.length < 2 ? "order" : "orders"} still have to be
-              paid
-            </div>
+            {pendingOrders.length >= 1 ? (
+              <div className="orders_placed_title">
+                <span style={{ color: "#e45959", fontSize: "32px" }}>
+                  {pendingOrders.length}
+                </span>{" "}
+                {pendingOrders.length < 2 ? "order" : "orders"} still have to be
+                paid
+              </div>
+            ) : (
+              <div className="orders_placed_title">All orders paid!</div>
+            )}
             <Button onClick={handleGoToOrder} variant="text">
               Order
             </Button>
