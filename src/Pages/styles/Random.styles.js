@@ -537,3 +537,112 @@ export const MakeAdminSubmitBtn = styled.div`
     }
   }
 `;
+
+export const SearchBarLogo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const SearchLogoContainer = styled.div`
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  & img {
+    width: 100%;
+  }
+  @media screen and (max-width: 518px) {
+    width: 60px;
+    height: 50px;
+  }
+  @media screen and (max-width: 372px) {
+    display: none;
+  }
+`;
+
+export const SearchBarField = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 410px;
+  background-color: #e1e1e1;
+  padding: 0px 16px 0px 0px;
+  border-radius: 4px;
+  & input {
+    background-color: transparent;
+    width: 100%;
+    color: #6c7778;
+    padding: 8px 0px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+  }
+  @media screen and (max-width: 518px) {
+    width: 100%;
+  }
+`;
+
+export const SearchFieldIcon = styled.div`
+  padding: 8px 16px;
+`;
+
+export const NoSearchResultContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 36px;
+  margin-bottom: 42px;
+  & img {
+    width: 25%;
+    @media screen and (max-width: 900px) {
+      width: 40%;
+    }
+    @media screen and (max-width: 556px) {
+      width: 56%;
+    }
+    @media screen and (max-width: 450px) {
+      width: 48%;
+    }
+    @media screen and (max-width: 420px) {
+      width: 52%;
+    }
+    @media screen and (max-width: 391px) {
+      width: 60%;
+    }
+    @media screen and (max-width: 367px) {
+      width: 50%;
+    }
+  }
+  & h4 {
+    font-size: 30px;
+    color: #555;
+    text-shadow: 1px 1px 2px black;
+    @media screen and (max-width: 450px) {
+      font-size: 24px;
+    }
+    @media screen and (max-width: 367px) {
+      font-size: 20px;
+    }
+  }
+`;
+
+export const ExploreSearchContainer = styled.div`
+  width: 75%;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0 auto !important;
+  padding: 0 1.2rem !important;
+  border-radius: 8px !important;
+  & input {
+    width: 100%;
+    height: 64px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #555;
+    border: none;
+    outline: none;
+  }
+`;

@@ -3,15 +3,28 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import Pagination from "@mui/material/Pagination";
-import { MyOrderPageTitle } from "../../styles/Random.styles";
 import ManageProduct from "../ManageProduct/ManageProduct";
 import { toast, ToastContainer } from "react-toastify";
+import NavLogoPNG from "../../../images/webLogo.png";
+import noSearchRes from "../../../images/no_search_result.png";
+import { IoSearchOutline } from "react-icons/io5";
+import {
+  MyOrderPageTitle,
+  NoSearchResultContainer,
+  SearchBarField,
+  SearchBarLogo,
+  SearchFieldIcon,
+  SearchLogoContainer,
+} from "../../styles/Random.styles";
 import "./ManageProducts.css";
 
 // manage products for admin
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [displayProducts, setDisplayProducts] = useState([]);
   const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [searchResults, setSearchResults] = useState(false);
 
   const [pageCount, setPageCount] = useState(0);
   const [pageData, setPageData] = useState(0);
@@ -42,6 +55,15 @@ const ManageProducts = () => {
       });
   }, [pageData]);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/allPerfumes")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllProducts(data);
+        setDisplayProducts(data);
+      });
+  }, []);
+
   const handleDeleteProduct = (id) => {
     const proceed = window.confirm(
       "Are you sure that you want to Delete this Product forever?"
@@ -68,23 +90,74 @@ const ManageProducts = () => {
     history.push("/newDashboard/addProduct");
   };
 
+  const handleSearch = (event) => {
+    const searchText = event.target.value;
+    const matchedProducts = allProducts.filter((element) =>
+      element.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayProducts(matchedProducts);
+    if (searchText === "") {
+      setSearchResults(false);
+    } else {
+      setSearchResults(true);
+    }
+  };
+
   return (
     <div style={{ marginTop: "36px" }}>
       <MyOrderPageTitle>
-        <div className="orders_placed_title">Delete any product needed</div>
+        <div className="orders_placed_title">Delete any product below</div>
         <Button onClick={handleAddProduct} variant="text">
           Add Product
         </Button>
       </MyOrderPageTitle>
-      {products.length ? (
+      <SearchBarLogo>
+        <SearchLogoContainer>
+          <img src={NavLogoPNG} alt="" />
+        </SearchLogoContainer>
+
+        <SearchBarField>
+          <SearchFieldIcon>
+            <IoSearchOutline color="#868282" />
+          </SearchFieldIcon>
+          <input type="text" placeholder="Search…" onChange={handleSearch} />
+        </SearchBarField>
+      </SearchBarLogo>
+      <br />
+      {allProducts.length ? (
         <>
-          {products.map((product) => (
-            <ManageProduct
-              key={product._id}
-              product={product}
-              handleDeleteProduct={handleDeleteProduct}
-            />
-          ))}
+          {searchResults ? (
+            <>
+              {displayProducts.length ? (
+                <>
+                  {displayProducts.map((product) => (
+                    <ManageProduct
+                      key={product._id}
+                      product={product}
+                      handleDeleteProduct={handleDeleteProduct}
+                    />
+                  ))}
+                </>
+              ) : (
+                <>
+                  <NoSearchResultContainer>
+                    <img src={noSearchRes} alt="" />
+                    <h4>Sorry, No search result found!</h4>
+                  </NoSearchResultContainer>
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              {products.map((product) => (
+                <ManageProduct
+                  key={product._id}
+                  product={product}
+                  handleDeleteProduct={handleDeleteProduct}
+                />
+              ))}
+            </>
+          )}
         </>
       ) : (
         <div
@@ -110,19 +183,21 @@ const ManageProducts = () => {
           pauseOnHover
         />
       )}
-      <div
-        style={{
-          marginTop: "3rem",
-          marginBottom: "1rem",
-          display: "flex",
-          justifyContent: "right",
-        }}
-      >
-        <Pagination
-          count={pageCount}
-          onChange={(event, value) => setPageData(value - 1)}
-        />
-      </div>
+      {!searchResults && (
+        <div
+          style={{
+            marginTop: "3rem",
+            marginBottom: "1rem",
+            display: "flex",
+            justifyContent: "right",
+          }}
+        >
+          <Pagination
+            count={pageCount}
+            onChange={(event, value) => setPageData(value - 1)}
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,8 @@ import ExplorePerfume from "../ExplorePerfume/ExplorePerfume";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { CARDS } from "../../styles/Cards.styles";
 import { Pagination } from "@mui/material";
+import { IoSearchOutline } from "react-icons/io5";
+import { ExploreSearchContainer } from "../../styles/Random.styles";
 import styles from "./ExplorePerfumes.module.css";
 
 const ExplorePerfumes = () => {
@@ -31,6 +33,12 @@ const ExplorePerfumes = () => {
         Explore Our All
         {perfumes.length >= 2 ? " Perfumes" : " Perfume"} Here!
       </h2>
+      <br />
+      <ExploreSearchContainer className="box">
+        <IoSearchOutline color="#555" size={20} />
+        <input type="text" name="" id="" placeholder="Search Perfumes..." />
+      </ExploreSearchContainer>
+      <br />
       <br />
       {perfumes.length ? (
         <div className="perfumes_display">
