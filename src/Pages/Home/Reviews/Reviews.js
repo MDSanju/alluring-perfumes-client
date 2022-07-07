@@ -32,14 +32,12 @@ const Reviews = () => {
   }, []);
   return (
     <ReviewsContainer>
-      <br />
-      <br />
       <BodyRole>
         {reviews.length ? (
           <Section>
             <div className="container">
               <SectionTitle>
-                <h2>What Our Customers Are Saying!</h2>
+                <h2 className="mt-4">What Our Customers Are Saying!</h2>
               </SectionTitle>
             </div>
             <div className="testimonials-carousel-wrap">

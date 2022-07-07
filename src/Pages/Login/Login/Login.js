@@ -4,7 +4,7 @@ import LoginForm from "../LoginForm/LoginForm";
 const Login = () => {
   return (
     <div>
-      <title>Login || Alluring Perfumes</title>
+      <title>Login | Alluring Perfumes</title>
       <LoginForm></LoginForm>
     </div>
   );

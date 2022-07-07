@@ -6,7 +6,7 @@ import ExplorePerfumes from "../ExplorePerfumes/ExplorePerfumes";
 const Explore = () => {
   return (
     <div>
-      <title>Explore || Alluring Perfumes</title>
+      <title>Explore | Alluring Perfumes</title>
       <Navbar></Navbar>
       <ExplorePerfumes></ExplorePerfumes>
       <Footer></Footer>

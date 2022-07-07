@@ -6,6 +6,7 @@ import "./scss/NewDashboard.scss";
 const NewDashboard = () => {
   return (
     <div>
+      <title>Dashboard | Alluring Perfumes</title>
       <MainLayout />
     </div>
   );

@@ -37,7 +37,7 @@ const useFirebase = () => {
             //
           })
           .catch((error) => {});
-        redirectUriHistory.replace("/");
+        redirectUriHistory.replace("/home");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -50,7 +50,7 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const destination = location?.state?.from || "/";
+        const destination = location?.state?.from || "/home";
         redirectUriHistory.replace(destination);
         setAuthError("");
       })
