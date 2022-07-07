@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { Button } from "@mui/material";
+import { IoSearchOutline } from "react-icons/io5";
+import SearchLogoPNG from "../../../images/webLogo.png";
 import NoOrderFound from "../../../images/no-orders.png";
+import noSearchRes from "../../../images/no_search_result.png";
 import {
   MyOrderPageTitle,
   NoOrderFoundImage,
   NoOrderFoundText,
+  NoSearchResultContainer,
+  SearchBarField,
+  SearchBarLogo,
+  SearchFieldIcon,
+  SearchLogoContainer,
 } from "../../styles/Random.styles";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { useHistory } from "react-router-dom";
@@ -19,7 +27,9 @@ const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [totalOrders, setTotalOrders] = useState([]);
+  const [displayOrders, setDisplayOrders] = useState([]);
   const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [searchResults, setSearchResults] = useState(false);
   const history = useHistory();
 
   // pagination states
@@ -56,7 +66,10 @@ const MyOrders = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/orders/totalOrders/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setTotalOrders(data));
+      .then((data) => {
+        setTotalOrders(data);
+        setDisplayOrders(data);
+      });
   }, [user.email, orders]);
 
   const handleDeleteOrder = (id) => {
@@ -81,6 +94,19 @@ const MyOrders = () => {
 
   const handleGoToOrder = () => {
     history.push("/explore");
+  };
+
+  const handleSearch = (event) => {
+    const searchText = event.target.value;
+    const matchedOrders = totalOrders.filter((element) =>
+      element.productName.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayOrders(matchedOrders);
+    if (searchText === "") {
+      setSearchResults(false);
+    } else {
+      setSearchResults(true);
+    }
   };
 
   return (
@@ -112,40 +138,84 @@ const MyOrders = () => {
               Order
             </Button>
           </MyOrderPageTitle>
-          {orders.length ? (
+          <SearchBarLogo>
+            <SearchLogoContainer>
+              <img src={SearchLogoPNG} alt="" />
+            </SearchLogoContainer>
+
+            <SearchBarField>
+              <SearchFieldIcon>
+                <IoSearchOutline color="#868282" />
+              </SearchFieldIcon>
+              <input
+                type="text"
+                placeholder="Search…"
+                onChange={handleSearch}
+              />
+            </SearchBarField>
+          </SearchBarLogo>
+          <br />
+          {searchResults ? (
             <>
-              {orders.map((order) => (
-                <MyOrder
-                  key={order._id}
-                  order={order}
-                  handleDeleteOrder={handleDeleteOrder}
-                />
-              ))}
+              {displayOrders.length ? (
+                <>
+                  {displayOrders.map((order) => (
+                    <MyOrder
+                      key={order._id}
+                      order={order}
+                      handleDeleteOrder={handleDeleteOrder}
+                    />
+                  ))}
+                </>
+              ) : (
+                <>
+                  <NoSearchResultContainer>
+                    <img src={noSearchRes} alt="" />
+                    <h4>Sorry, No orders found!</h4>
+                  </NoSearchResultContainer>
+                </>
+              )}
             </>
           ) : (
+            <>
+              {orders.length ? (
+                <>
+                  {orders.map((order) => (
+                    <MyOrder
+                      key={order._id}
+                      order={order}
+                      handleDeleteOrder={handleDeleteOrder}
+                    />
+                  ))}
+                </>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "45px",
+                  }}
+                >
+                  <ScaleLoader color={"#003665"} size={85} />
+                </div>
+              )}
+            </>
+          )}
+          {!searchResults && (
             <div
               style={{
+                marginTop: "3rem",
+                marginBottom: "1rem",
                 display: "flex",
-                justifyContent: "center",
-                marginTop: "45px",
+                justifyContent: "right",
               }}
             >
-              <ScaleLoader color={"#003665"} size={85} />
+              <Pagination
+                count={pageCount}
+                onChange={(event, value) => setPage(value - 1)}
+              />
             </div>
           )}
-          <div
-            style={{
-              marginTop: "3rem",
-              marginBottom: "1rem",
-              display: "flex",
-              justifyContent: "right",
-            }}
-          >
-            <Pagination
-              count={pageCount}
-              onChange={(event, value) => setPage(value - 1)}
-            />
-          </div>
         </>
       ) : (
         <NoOrderFoundImage>
