@@ -341,61 +341,60 @@ export const CardImages = styled.div`
   }
 `;
 
-
 // Add A New Order Styles
 export const AddProductFullPage = styled.div`
-   display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 4%;
-    margin-top: 40px;
-    margin-bottom: 86px;
-    @media screen and (max-width: 1080px) {
-      flex-direction: column;
-      gap: 50px;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+  margin-top: 40px;
+  margin-bottom: 86px;
+  @media screen and (max-width: 1080px) {
+    flex-direction: column;
+    gap: 50px;
+  }
 `;
 
 export const AddProductPageImage = styled.div`
   width: 50%;
-  & img{
+  & img {
     width: 100%;
   }
   @media screen and (max-width: 1080px) {
-      width: 75%;
-    }
+    width: 75%;
+  }
   @media screen and (max-width: 768px) {
-      width: 85%;
-    }
-    @media screen and (max-width: 650px) {
-      width: 90%;
-    }
-    @media screen and (max-width: 550px) {
-      width: 100%;
-    }
+    width: 85%;
+  }
+  @media screen and (max-width: 650px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
 `;
 
 export const FormCard = styled.div`
   width: 40%;
   @media screen and (max-width: 1080px) {
-      width: 60%;
-    }
+    width: 60%;
+  }
   @media screen and (max-width: 768px) {
-      width: 70%;
-    }
+    width: 70%;
+  }
   @media screen and (max-width: 650px) {
-      width: 80%;
-    }
+    width: 80%;
+  }
   @media screen and (max-width: 550px) {
-      width: 90%;
-    }
+    width: 90%;
+  }
   @media screen and (max-width: 500px) {
-      width: 96%;
-    }
+    width: 96%;
+  }
   @media screen and (max-width: 400px) {
-      width: 96%;
-    }
+    width: 96%;
+  }
 `;
 
 export const CardBox = styled.div`
@@ -411,37 +410,37 @@ export const AddProductCardBoxIcon = styled.div`
     height: 100%;
   }
   @media screen and (max-width: 500px) {
-      width: 156px;
-    }
+    width: 156px;
+  }
   @media screen and (max-width: 440px) {
-      width: 132px;
-    }
+    width: 132px;
+  }
   @media screen and (max-width: 368px) {
-      width: 124px;
-    }
+    width: 124px;
+  }
   @media screen and (max-width: 340px) {
-      width: 116px;
-    }
+    width: 116px;
+  }
 `;
 
 export const AddProductCardTitle = styled.h3`
   font-size: 2.4rem;
-    font-weight: 900;
-    margin-bottom: 60px;
-    text-align: center;
-    color: #d6d6d6;
-    @media screen and (max-width: 500px) {
-      font-size: 2.2rem;
-    }
+  font-weight: 900;
+  margin-bottom: 60px;
+  text-align: center;
+  color: #d6d6d6;
+  @media screen and (max-width: 500px) {
+    font-size: 2.2rem;
+  }
   @media screen and (max-width: 440px) {
-      font-size: 2.1rem;
-    }
+    font-size: 2.1rem;
+  }
   @media screen and (max-width: 368px) {
-      font-size: 2rem;
-    }
+    font-size: 2rem;
+  }
   @media screen and (max-width: 340px) {
-      font-size: 1.8rem;
-    }
+    font-size: 1.8rem;
+  }
 `;
 
 export const AddProductSubmitBtn = styled.div`
@@ -462,31 +461,29 @@ export const AddProductSubmitBtn = styled.div`
   }
 `;
 
-
-
 // Make Admin Styles
 export const MakeAdminFullPage = styled.div`
-   display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
-    margin-top: 40px;
-    margin-bottom: 86px;
-    @media screen and (max-width: 1080px) {
-      flex-direction: column;
-      gap: 36px;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  margin-top: 40px;
+  margin-bottom: 86px;
+  @media screen and (max-width: 1080px) {
+    flex-direction: column;
+    gap: 36px;
+  }
 `;
 
 export const MakeAdminPageImage = styled.div`
   width: 58%;
-  & img{
+  & img {
     width: 100%;
   }
   @media screen and (max-width: 1080px) {
-      width: 100%;
-    }
+    width: 100%;
+  }
 `;
 
 export const MakeAdminCardBoxIcon = styled.div`
@@ -498,14 +495,14 @@ export const MakeAdminCardBoxIcon = styled.div`
     height: 100%;
   }
   @media screen and (max-width: 500px) {
-      width: 124px;
-    }
+    width: 124px;
+  }
   @media screen and (max-width: 440px) {
-      width: 110px;
-    }
+    width: 110px;
+  }
   @media screen and (max-width: 340px) {
-      width: 100px;
-    }
+    width: 100px;
+  }
 `;
 
 export const MakeAdminCardTitle = styled.h3`
@@ -516,8 +513,8 @@ export const MakeAdminCardTitle = styled.h3`
   text-align: center;
   color: #444444;
   @media screen and (max-width: 440px) {
-      font-size: 2rem;
-    }
+    font-size: 2rem;
+  }
 `;
 
 export const MakeAdminSubmitBtn = styled.div`
@@ -628,6 +625,27 @@ export const NoSearchResultContainer = styled.div`
   }
 `;
 
+export const ExploreHeader = styled.div`
+  background-image: url(https://i.ibb.co/jwHBhvr/explore-bg-01.png);
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  position: relative;
+  padding: 116px 0px 48px 0px;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: -1;
+  }
+`;
+
 export const ExploreSearchContainer = styled.div`
   width: 75%;
   display: flex;
@@ -645,4 +663,7 @@ export const ExploreSearchContainer = styled.div`
     border: none;
     outline: none;
   }
+  @media screen and (max-width: 768px) {
+      width: 90%;
+    }
 `;
