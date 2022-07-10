@@ -8,6 +8,7 @@ export const CARDS = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-left: 0;
     & li {
       list-style: none;
       height: 520px;
@@ -25,6 +26,9 @@ export const CARDS = styled.div`
         font-size: 30px;
         color: #555;
         text-shadow: 1px 1px 2px black;
+      }
+      @media screen and (max-width: 400px) {
+        padding: 0;
       }
     }
   }

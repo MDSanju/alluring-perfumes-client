@@ -26,7 +26,7 @@ const Tabs = ({ tabNo1 }) => {
           //   className="d-flex justify-content-center"
           key={tabNo2._id}
           tabNo2={tabNo2}
-          style={{ padding: "50px" }}
+          style={{ padding: "50px 24px" }}
         >
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="tab-menus text-center mt-3">

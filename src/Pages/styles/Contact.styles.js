@@ -14,7 +14,7 @@ export const ContactFormContainer = styled.div`
     gap: 95px;
   }
   @media screen and (max-width: 600px) {
-    padding: 80px 0 125px 0;
+    padding: 80px 14px 125px 14px;
   }
 `;
 
@@ -102,6 +102,10 @@ export const ContactSubmitButton = styled.button`
   border-radius: 100px;
   font-weight: 600;
   box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  &:hover {
+    background-color: #706ef8;
+    transition: 0.2s ease;
+  }
 `;
 
 export const ContactInfo = styled.div`
