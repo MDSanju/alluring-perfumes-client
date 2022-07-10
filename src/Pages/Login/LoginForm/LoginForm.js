@@ -5,7 +5,6 @@ import useAuth from "../../../hooks/useAuth";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import registrationImg from "../../../images/img/register.svg";
 import loginImg from "../../../images/img/log.svg";
-import { Alert } from "@mui/material";
 import Registration from "./Registration";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,7 +39,6 @@ const LoginForm = () => {
   };
 
   const { isLoading, authError, userLogin } = useAuth();
-  const history = useHistory();
 
   const location = useLocation();
   const redirectUriHistory = useHistory();
@@ -51,11 +49,6 @@ const LoginForm = () => {
     reset();
   };
 
-  const toggleCheckedButton = (e) => {
-    if (!e.target.checked) {
-      history.push("/register");
-    }
-  };
   return (
     <div className="login_reg_body">
       <div
@@ -85,11 +78,6 @@ const LoginForm = () => {
                   {...register("password")}
                 />
               </div>
-              {/* {authError && (
-                <Alert severity="error">
-                  This is wrong user account — Please try again!
-                </Alert>
-              )} */}
               {authError && (
                 <ToastContainer
                   position="top-center"

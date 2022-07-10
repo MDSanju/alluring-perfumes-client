@@ -47,6 +47,9 @@ export const SectionTitle = styled.div`
     font-weight: 800;
     position: relative;
     letter-spacing: 2px;
+    @media screen and (max-width: 450px) {
+      font-size: 24px;
+    }
   }
 `;
 

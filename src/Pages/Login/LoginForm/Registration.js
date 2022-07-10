@@ -1,5 +1,4 @@
 import React from "react";
-import { Alert } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
@@ -79,7 +78,6 @@ const Registration = () => {
           {...register("password2")}
         />
       </div>
-      {/* {regError && <Alert severity="error">Already used user account!</Alert>} */}
       {regError && (
         <ToastContainer
           position="top-center"
