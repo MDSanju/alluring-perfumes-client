@@ -32,7 +32,7 @@ import Shipped from "../Shipped/Shipped";
 import TabsManagement from "../TabsManagement/TabsManagement";
 import ContentTabOne from "../ContentTabOne/ContentTabOne";
 import ContentTabTwo from "../ContentTabTwo/ContentTabTwo";
-import ManageTabsContents from "../ManageTabsContents/ManageTabsContents";
+import ManageTabs from "../ManageTabs/ManageTabs";
 import Payment from "../Payment/Payment";
 import "./Dashboard.css";
 
@@ -192,7 +192,7 @@ const Dashboard = () => {
             <Link
               className="nav-link active d-flex align-items-center"
               aria-current="page"
-              to={`${url}/manageTabsContents`}
+              to={`${url}/manageTabs`}
             >
               <i className="icons mb-1 me-3">
                 <MdDeleteForever />
@@ -287,8 +287,8 @@ const Dashboard = () => {
         <AdminRoute path={`${path}/contentTabTwo`}>
           <ContentTabTwo></ContentTabTwo>
         </AdminRoute>
-        <AdminRoute path={`${path}/manageTabsContents`}>
-          <ManageTabsContents></ManageTabsContents>
+        <AdminRoute path={`${path}/manageTabs`}>
+          <ManageTabs></ManageTabs>
         </AdminRoute>
       </Switch>
     </div>

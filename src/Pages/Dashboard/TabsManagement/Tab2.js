@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { TabNameInputField } from "../../styles/Random.styles";
 
 const Tab2 = ({ tab2 }) => {
   console.log(tab2);
@@ -26,29 +27,19 @@ const Tab2 = ({ tab2 }) => {
   };
   return (
     <div>
-      <div
-        className="d-flex justify-content-center"
-        style={{ marginTop: "10px", marginBottom: "30px" }}
-      >
-        <div className="form-floating mb-3 mt-5 col-10 col-sm-10 col-md-5">
-          <h2 className="text-center fw-bold mb-5 make-admin-input-title">
-            Tab-2!
-          </h2>
+      <div style={{ marginTop: "10px", marginBottom: "30px" }}>
+        <div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              className="form-control mt-3"
-              id="floatingInput"
-              placeholder="Tab-2 Name"
-              required
-              {...register("tabName2")}
-            />
+            <TabNameInputField>
+              <input
+                type="text"
+                placeholder="Tab two name"
+                required
+                {...register("tabName2")}
+              />
 
-            <input
-              className="btn btn-primary w-100 mt-4"
-              type="submit"
-              value="Update"
-            />
+              <button type="submit">Update</button>
+            </TabNameInputField>
           </form>
         </div>
       </div>

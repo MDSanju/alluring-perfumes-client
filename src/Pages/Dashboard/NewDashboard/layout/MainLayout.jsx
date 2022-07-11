@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import Blank from "../pages/Blank";
 import Sidebar from "../components/sidebar/Sidebar";
 import TopNav from "../components/topnav/TopNav";
 import AdminRoute from "../../../Login/AdminRoute/AdminRoute";
@@ -15,6 +14,7 @@ import ManageAllOrders from "../../ManageAllOrders/ManageAllOrders";
 import Shipped from "../../Shipped/Shipped";
 import AddProduct from "../../AddProduct/AddProduct";
 import MakeAdmin from "../../MakeAdmin/MakeAdmin";
+import ManageTabs from "../../ManageTabs/ManageTabs";
 import "./main-layout.scss";
 
 const MainLayout = () => {
@@ -61,7 +61,7 @@ const MainLayout = () => {
               <ManageProducts />
             </AdminRoute>
             <AdminRoute path="/newDashboard/manageTabs">
-              <Blank />
+              <ManageTabs />
             </AdminRoute>
           </Switch>
         </div>

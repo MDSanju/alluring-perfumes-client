@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GiDelicatePerfume, GiPerfumeBottle } from "react-icons/gi";
+import TabOne from "../TabsContent/TabOne";
 import "./Tabs.css";
 
 const Tabs = ({ tabNo1 }) => {
@@ -57,6 +58,7 @@ const Tabs = ({ tabNo1 }) => {
                 toggleState === 1 ? "content  active-content" : "content"
               }
             >
+              {/* <TabOne /> */}
               <h2>Content 1</h2>
             </div>
             <div

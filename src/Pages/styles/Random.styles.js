@@ -667,3 +667,52 @@ export const ExploreSearchContainer = styled.div`
       width: 90%;
     }
 `;
+
+
+// Tabs name setting
+
+export const TabNameInputField = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 20px 0;
+  
+  & label {
+    color: #5e779d;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 8px;
+  }
+  & input {
+    width: 800px;
+    background-color: #e4e5e9;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #eee;
+    outline: none;
+    line-height: 1;
+    padding: 14px 18px 14px 18px;
+    border-radius: 100px 0px 0px 100px;
+    @media screen and (max-width: 1000px) {
+      width: 600px;
+    }
+  }
+  & button{
+    margin-left: -72px;
+    background-color: #34495e;
+    color: #f2f6fe;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    padding: 14px 18px 14px 18px;
+    border: none;
+    border-radius: 100px;
+    &:hover{
+      background-color: #d63031;
+      transition: 0.2s ease;
+    }
+  }
+`;

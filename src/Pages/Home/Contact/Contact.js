@@ -3,7 +3,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
-import ContactBgImgPng from "../../../images/contact_form_bg.png";
+import ContactBgImgPng from "../../../images/contact_form_bg2.png";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { toast, ToastContainer } from "react-toastify";

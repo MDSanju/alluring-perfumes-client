@@ -62,7 +62,14 @@ export const BoxCopyRight = styled.div`
   & p {
     margin-top: 20px;
     color: #7a7a7a;
+    font-size: 1.125rem;
     font-weight: 400;
+    @media screen and (max-width: 360px) {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 332px) {
+      font-size: 0.9rem;
+    }
   }
   & hr {
     border: none;
