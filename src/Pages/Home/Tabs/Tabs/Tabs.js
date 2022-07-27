@@ -58,8 +58,7 @@ const Tabs = ({ tabNo1 }) => {
                 toggleState === 1 ? "content  active-content" : "content"
               }
             >
-              {/* <TabOne /> */}
-              <h2>Content 1</h2>
+              <TabOne />
             </div>
             <div
               className={

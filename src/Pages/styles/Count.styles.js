@@ -9,6 +9,9 @@ export const CountContainer = styled.div`
   padding: 100px 0;
   background-attachment: fixed;
   text-align: center;
+  @media screen and (max-width: 588px) {
+    background-attachment: unset;
+  }
 `;
 
 export const CountRow = styled.div`

@@ -94,7 +94,7 @@ const Sidebar = () => {
               <div className="sidebar__menu__item__txt">{nav.text}</div>
             </Link>
           ))}
-          <div onClick={logout} className="sidebar__menu__item">
+          <div onClick={logout} className="sidebar__menu__item logout_button">
             <div className="sidebar__menu__item__icon">
               <i className="bx bx-log-out"></i>
             </div>
@@ -126,7 +126,7 @@ const Sidebar = () => {
               <div className="sidebar__menu__item__txt">{nav.text}</div>
             </Link>
           ))}
-          <div onClick={logout} className="sidebar__menu__item">
+          <div onClick={logout} className="sidebar__menu__item logout_button">
             <div className="sidebar__menu__item__icon">
               <i className="bx bx-log-out"></i>
             </div>

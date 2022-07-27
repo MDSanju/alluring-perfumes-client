@@ -644,6 +644,9 @@ export const ExploreHeader = styled.div`
     opacity: 0.4;
     z-index: -1;
   }
+  @media screen and (max-width: 588px) {
+    background-attachment: unset;
+  }
 `;
 
 export const ExploreSearchContainer = styled.div`

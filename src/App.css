@@ -32,6 +32,10 @@
     padding: 14px 0px 14px 10px !important;
 }
 
+.logout_button {
+    margin-top: auto;
+}
+
 @media screen and (max-width: 667px) {
     #cvc {
         min-width: 520px !important;
@@ -44,6 +48,12 @@
     }
     #card-expiry {
         min-width: 470px !important;
+    }
+}
+
+@media screen and (max-width: 588px) {
+    .logout_button {
+        margin-top: 0;
     }
 }
 

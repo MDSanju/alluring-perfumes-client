@@ -3,19 +3,29 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 import useAuth from "../../../hooks/useAuth";
+import { IoSearchOutline } from "react-icons/io5";
 import {
   MyOrderPageTitle,
   NoOrderFoundImage,
   NoOrderFoundText,
+  NoSearchResultContainer,
+  SearchBarField,
+  SearchBarLogo,
+  SearchFieldIcon,
+  SearchLogoContainer,
 } from "../../styles/Random.styles";
 import PayInfo from "../PayInfo/PayInfo";
 import NoOrderFound from "../../../images/noOrders.svg";
+import SearchLogoPNG from "../../../images/webLogo.png";
+import noSearchRes from "../../../images/no_search_result.png";
 import "./Pay.css";
 
 const Pay = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
   const [totalOrders, setTotalOrders] = useState([]);
+  const [displayOrders, setDisplayOrders] = useState([]);
+  const [searchResults, setSearchResults] = useState(false);
   const history = useHistory();
 
   // pagination states
@@ -32,6 +42,19 @@ const Pay = () => {
   const pendingOrders = totalOrders.filter(
     (element) => element.status === "Pending" && !element.payment
   );
+
+  const handleSearch = (event) => {
+    const searchText = event.target.value;
+    const matchedOrders = totalOrders.filter((element) =>
+      element.productName.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayOrders(matchedOrders);
+    if (searchText === "") {
+      setSearchResults(false);
+    } else {
+      setSearchResults(true);
+    }
+  };
 
   useEffect(() => {
     fetch(
@@ -74,23 +97,62 @@ const Pay = () => {
               Order
             </Button>
           </MyOrderPageTitle>
-          {orders.length ? (
+          <SearchBarLogo>
+            <SearchLogoContainer>
+              <img src={SearchLogoPNG} alt="" />
+            </SearchLogoContainer>
+
+            <SearchBarField>
+              <SearchFieldIcon>
+                <IoSearchOutline color="#868282" />
+              </SearchFieldIcon>
+              <input
+                type="text"
+                placeholder="Search…"
+                onChange={handleSearch}
+              />
+            </SearchBarField>
+          </SearchBarLogo>
+          <br />
+          {searchResults ? (
             <>
-              {orders.map((order) => (
-                <PayInfo key={order._id} order={order} />
-              ))}
+              {displayOrders.length ? (
+                <>
+                  {displayOrders.map((order) => (
+                    <PayInfo key={order._id} order={order} />
+                  ))}
+                </>
+              ) : (
+                <>
+                  <NoSearchResultContainer>
+                    <img src={noSearchRes} alt="" />
+                    <h4>Sorry, No orders found!</h4>
+                  </NoSearchResultContainer>
+                </>
+              )}
             </>
           ) : (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "45px",
-              }}
-            >
-              <ScaleLoader color={"#003665"} size={85} />
-            </div>
+            <>
+              {orders.length ? (
+                <>
+                  {orders.map((order) => (
+                    <PayInfo key={order._id} order={order} />
+                  ))}
+                </>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "45px",
+                  }}
+                >
+                  <ScaleLoader color={"#003665"} size={85} />
+                </div>
+              )}
+            </>
           )}
+
           <div
             style={{
               marginTop: "3rem",
