@@ -15,7 +15,7 @@ export const TabsContainer = styled.div`
     }
   }
   & .tabs_tab_btn {
-    background: #34495e;
+    background: #4d5f71;
     max-width: 220px;
     width: 100%;
     cursor: pointer;
@@ -29,12 +29,12 @@ export const TabsContainer = styled.div`
     border: 2px solid #f2f6fe;
     border-radius: 10px;
     &:hover {
-      background-color: #d63031;
+      background-color: #8a84d8;
       transition: 0.2s ease;
     }
   }
   & .active_tabs_tab_btn {
-    background: #d63031;
+    background: #8a84d8;
     color: #f2f6fe;
     max-width: 220px;
     width: 100%;
@@ -52,12 +52,13 @@ export const TabsContainer = styled.div`
 export const TabsTitle = styled.h3`
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 3.5rem;
+  font-family: "Carter One", cursive;
   line-height: 120%;
   text-align: center;
   margin: 0;
   & span {
-    background: linear-gradient(to right, #d63031, #d63031);
+    background: linear-gradient(to right, #a29bfe, #a29bfe);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -70,14 +71,20 @@ export const TabsTitle = styled.h3`
 `;
 
 export const TabsParagraph = styled.p`
-  color: #34495e;
+  color: #788da0;
   text-align: center;
   font-weight: 600;
   font-size: 24px;
   @media screen and (max-width: 610px) {
-    font-size: 18px;
+    font-size: 17px;
   }
   @media screen and (max-width: 410px) {
-    font-size: 16px;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 392px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 340px) {
+    font-size: 12px;
   }
 `;

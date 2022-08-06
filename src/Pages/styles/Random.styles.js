@@ -680,7 +680,7 @@ export const TabNameInputField = styled.div`
   justify-content: center;
   align-items: center;
   margin: 20px 0 20px 0;
-  
+
   & label {
     color: #5e779d;
     font-weight: 600;
@@ -703,9 +703,9 @@ export const TabNameInputField = styled.div`
       width: 600px;
     }
   }
-  & button{
+  & button {
     margin-left: -72px;
-    background-color: #34495e;
+    background-color: #4d5f71;
     color: #f2f6fe;
     font-size: 1.1rem;
     font-weight: 600;
@@ -713,8 +713,8 @@ export const TabNameInputField = styled.div`
     padding: 14px 18px 14px 18px;
     border: none;
     border-radius: 100px;
-    &:hover{
-      background-color: #d63031;
+    &:hover {
+      background-color: #2f3640;
       transition: 0.2s ease;
     }
   }

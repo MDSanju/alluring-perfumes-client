@@ -153,19 +153,21 @@ const Pay = () => {
             </>
           )}
 
-          <div
-            style={{
-              marginTop: "3rem",
-              marginBottom: "1rem",
-              display: "flex",
-              justifyContent: "right",
-            }}
-          >
-            <Pagination
-              count={pageCount}
-              onChange={(event, value) => setPage(value - 1)}
-            />
-          </div>
+          {!searchResults && (
+            <div
+              style={{
+                marginTop: "3rem",
+                marginBottom: "1rem",
+                display: "flex",
+                justifyContent: "right",
+              }}
+            >
+              <Pagination
+                count={pageCount}
+                onChange={(event, value) => setPage(value - 1)}
+              />
+            </div>
+          )}
         </>
       ) : (
         <NoOrderFoundImage>
