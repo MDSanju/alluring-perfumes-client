@@ -34,7 +34,7 @@ const Review = () => {
         progress: undefined,
       });
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://mysterious-brook-12035.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

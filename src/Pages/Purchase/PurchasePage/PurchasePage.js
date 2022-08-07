@@ -16,7 +16,7 @@ const PurchasePage = () => {
   const status = "Pending";
 
   useEffect(() => {
-    fetch(`http://localhost:5000/perfumes/${productId}`)
+    fetch(`https://mysterious-brook-12035.herokuapp.com/perfumes/${productId}`)
       .then((res) => res.json())
       .then((result) => setProduct(result));
   }, [productId]);
@@ -37,7 +37,7 @@ const PurchasePage = () => {
 
     const proceed = window.confirm("Please confirm to Purchase!");
     if (proceed) {
-      fetch("http://localhost:5000/orders", {
+      fetch("https://mysterious-brook-12035.herokuapp.com/orders", {
         method: "POST",
         body: formData,
       })

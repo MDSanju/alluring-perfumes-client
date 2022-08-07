@@ -40,7 +40,9 @@ const ManageAllOrders = () => {
   const size = 3;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?page=${page}&&size=${size}`)
+    fetch(
+      `https://mysterious-brook-12035.herokuapp.com/orders?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrders(data.orders);
@@ -51,7 +53,7 @@ const ManageAllOrders = () => {
   }, [page]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://mysterious-brook-12035.herokuapp.com/allOrders")
       .then((res) => res.json())
       .then((data) => {
         setAllOrders(data);
@@ -60,7 +62,7 @@ const ManageAllOrders = () => {
   }, []);
 
   const handleUpdateStatus = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
