@@ -41,16 +41,13 @@ const CheckoutForm = ({ booking }) => {
   const [processing, setProcessing] = useState(false);
 
   useEffect(() => {
-    fetch(
-      "https://mysterious-brook-12035.herokuapp.com/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ perfumePrice }),
-      }
-    )
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ perfumePrice }),
+    })
       .then((res) => res.json())
       .then((data) => {
         setClientSecret(data.clientSecret);
@@ -113,7 +110,7 @@ const CheckoutForm = ({ booking }) => {
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice("_secret")[0],
       };
-      const url = `https://mysterious-brook-12035.herokuapp.com/orders/pay/${_id}`;
+      const url = `http://localhost:5000/orders/pay/${_id}`;
       fetch(url, {
         method: "PUT",
         headers: {

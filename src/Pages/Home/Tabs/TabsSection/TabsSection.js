@@ -8,7 +8,7 @@ const TabsSection = () => {
   const [tab1, setTab1] = useState([]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/tab1")
+    fetch("http://localhost:5000/tab1")
       .then((res) => res.json())
       .then((data) => setTab1(data));
   }, []);

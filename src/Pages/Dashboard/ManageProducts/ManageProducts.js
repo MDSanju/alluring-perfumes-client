@@ -45,9 +45,7 @@ const ManageProducts = () => {
     });
 
   useEffect(() => {
-    fetch(
-      `https://mysterious-brook-12035.herokuapp.com/perfumes?page=${pageData}&&size=${dataSize}`
-    )
+    fetch(`http://localhost:5000/perfumes?page=${pageData}&&size=${dataSize}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.perfumes);
@@ -58,7 +56,7 @@ const ManageProducts = () => {
   }, [pageData]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/allPerfumes")
+    fetch("http://localhost:5000/allPerfumes")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
@@ -71,7 +69,7 @@ const ManageProducts = () => {
       "Are you sure that you want to Delete this Product forever?"
     );
     if (proceed) {
-      fetch(`https://mysterious-brook-12035.herokuapp.com/perfumes/${id}`, {
+      fetch(`http://localhost:5000/perfumes/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

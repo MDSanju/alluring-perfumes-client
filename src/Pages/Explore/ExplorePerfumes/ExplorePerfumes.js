@@ -22,9 +22,7 @@ const ExplorePerfumes = () => {
   const dataSize = 6;
 
   useEffect(() => {
-    fetch(
-      `https://mysterious-brook-12035.herokuapp.com/perfumes?page=${pageData}&&size=${dataSize}`
-    )
+    fetch(`http://localhost:5000/perfumes?page=${pageData}&&size=${dataSize}`)
       .then((res) => res.json())
       .then((data) => {
         setPerfumes(data.perfumes);
@@ -35,7 +33,7 @@ const ExplorePerfumes = () => {
   }, [pageData]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/allPerfumes")
+    fetch("http://localhost:5000/allPerfumes")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

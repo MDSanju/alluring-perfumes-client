@@ -5,16 +5,26 @@ import { Button } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import ManageAllOrder from "../ManageAllOrder/ManageAllOrder";
 import NoOrderFound from "../../../images/no-orders2.png";
+import { IoSearchOutline } from "react-icons/io5";
+import NavLogoPNG from "../../../images/webLogo.png";
+import noSearchRes from "../../../images/no_search_result.png";
 import {
   MyOrderPageTitle,
   NoOrderFoundImage,
   NoOrderFoundText,
+  NoSearchResultContainer,
+  SearchBarField,
+  SearchBarLogo,
+  SearchFieldIcon,
+  SearchLogoContainer,
 } from "../../styles/Random.styles";
 
 // manage all orders for admin
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
+  const [displayOrders, setDisplayOrders] = useState([]);
+  const [searchResults, setSearchResults] = useState(false);
 
   const history = useHistory();
 
@@ -30,9 +40,7 @@ const ManageAllOrders = () => {
   const size = 3;
 
   useEffect(() => {
-    fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders?page=${page}&&size=${size}`
-    )
+    fetch(`http://localhost:5000/orders?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data.orders);
@@ -43,13 +51,16 @@ const ManageAllOrders = () => {
   }, [page]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/allOrders")
+    fetch("http://localhost:5000/allOrders")
       .then((res) => res.json())
-      .then((data) => setAllOrders(data));
+      .then((data) => {
+        setAllOrders(data);
+        setDisplayOrders(data);
+      });
   }, []);
 
   const handleUpdateStatus = (id) => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
+    fetch(`http://localhost:5000/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -63,6 +74,19 @@ const ManageAllOrders = () => {
           history.push("/newDashboard/shipped");
         }
       });
+  };
+
+  const handleSearch = (event) => {
+    const searchText = event.target.value;
+    const matchedOrders = allOrders.filter((element) =>
+      element.productName.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setDisplayOrders(matchedOrders);
+    if (searchText === "") {
+      setSearchResults(false);
+    } else {
+      setSearchResults(true);
+    }
   };
 
   return (
@@ -80,40 +104,84 @@ const ManageAllOrders = () => {
               Home
             </Button>
           </MyOrderPageTitle>
-          {orders.length ? (
+          <SearchBarLogo>
+            <SearchLogoContainer>
+              <img src={NavLogoPNG} alt="" />
+            </SearchLogoContainer>
+
+            <SearchBarField>
+              <SearchFieldIcon>
+                <IoSearchOutline color="#868282" />
+              </SearchFieldIcon>
+              <input
+                type="text"
+                placeholder="Search…"
+                onChange={handleSearch}
+              />
+            </SearchBarField>
+          </SearchBarLogo>
+          <br />
+          {searchResults ? (
             <>
-              {orders.map((order) => (
-                <ManageAllOrder
-                  key={order._id}
-                  order={order}
-                  handleUpdateStatus={handleUpdateStatus}
-                />
-              ))}
+              {displayOrders.length ? (
+                <>
+                  {displayOrders.map((order) => (
+                    <ManageAllOrder
+                      key={order._id}
+                      order={order}
+                      handleUpdateStatus={handleUpdateStatus}
+                    />
+                  ))}
+                </>
+              ) : (
+                <>
+                  <NoSearchResultContainer>
+                    <img src={noSearchRes} alt="" />
+                    <h4>Sorry, No orders found!</h4>
+                  </NoSearchResultContainer>
+                </>
+              )}
             </>
           ) : (
+            <>
+              {orders.length ? (
+                <>
+                  {orders.map((order) => (
+                    <ManageAllOrder
+                      key={order._id}
+                      order={order}
+                      handleUpdateStatus={handleUpdateStatus}
+                    />
+                  ))}
+                </>
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "45px",
+                  }}
+                >
+                  <ScaleLoader color={"#003665"} size={85} />
+                </div>
+              )}
+            </>
+          )}
+          {!searchResults && (
             <div
               style={{
+                marginTop: "3rem",
+                marginBottom: "1rem",
                 display: "flex",
-                justifyContent: "center",
-                marginTop: "45px",
+                justifyContent: "right",
               }}
             >
-              <ScaleLoader color={"#003665"} size={85} />
+              <Pagination
+                count={pageCount}
+                onChange={(event, value) => setPage(value - 1)}
+              />
             </div>
           )}
-          <div
-            style={{
-              marginTop: "3rem",
-              marginBottom: "1rem",
-              display: "flex",
-              justifyContent: "right",
-            }}
-          >
-            <Pagination
-              count={pageCount}
-              onChange={(event, value) => setPage(value - 1)}
-            />
-          </div>
         </>
       ) : (
         <NoOrderFoundImage>

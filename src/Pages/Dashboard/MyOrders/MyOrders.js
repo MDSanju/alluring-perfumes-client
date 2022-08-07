@@ -52,7 +52,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/${user.email}?page=${page}&&size=${size}`
+      `http://localhost:5000/orders/${user.email}?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -64,9 +64,7 @@ const MyOrders = () => {
   }, [user.email, page]);
 
   useEffect(() => {
-    fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/totalOrders/${user.email}`
-    )
+    fetch(`http://localhost:5000/orders/totalOrders/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setTotalOrders(data);
@@ -79,7 +77,7 @@ const MyOrders = () => {
       "Are you sure that you want to remove this one?"
     );
     if (proceed) {
-      fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
+      fetch(`http://localhost:5000/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
