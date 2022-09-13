@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaUsers } from "react-icons/fa";
 import { BiCube, BiReceipt } from "react-icons/bi";
 import { CgOrganisation } from "react-icons/cg";
@@ -10,7 +10,18 @@ import {
 } from "../../styles/Count.styles";
 
 const Count = () => {
-  const [mouseOver, setMouseOver] = useState(false);
+  const scrollRef = useRef();
+  const [countSectionVisible, setCountSectionVisible] = useState();
+  console.log(countSectionVisible);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setCountSectionVisible(entry.isIntersecting);
+    });
+
+    observer.observe(scrollRef.current);
+  }, []);
 
   useEffect(() => {
     const counters = document.querySelectorAll(".counter");
@@ -38,19 +49,15 @@ const Count = () => {
         }
       };
 
-      if (mouseOver === true) {
+      if (countSectionVisible) {
         updateCount();
       }
     });
-  }, [mouseOver]);
-
-  const handleMouseOver = () => {
-    setMouseOver(true);
-  };
+  }, [countSectionVisible]);
 
   return (
-    <CountContainer onMouseOver={handleMouseOver}>
-      <CountRow>
+    <CountContainer>
+      <CountRow ref={scrollRef}>
         <CountRowItem>
           <h2 className="counter" data-target="581237">
             0
