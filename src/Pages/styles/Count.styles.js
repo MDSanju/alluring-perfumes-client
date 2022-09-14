@@ -10,7 +10,7 @@ export const CountContainer = styled.div`
   background-attachment: fixed;
   text-align: center;
   @media screen and (max-width: 588px) {
-    background-attachment: unset;
+    background-size: cover;
   }
 `;
 
