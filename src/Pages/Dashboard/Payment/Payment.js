@@ -17,7 +17,7 @@ const Payment = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/pay/${paymentId}`
+      `https://alluring-perfumes-server.onrender.com/orders/pay/${paymentId}`
     )
       .then((res) => res.json())
       .then((data) => setBooking(data));

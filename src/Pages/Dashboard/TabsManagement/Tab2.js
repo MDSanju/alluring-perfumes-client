@@ -9,7 +9,7 @@ const Tab2 = ({ tab2 }) => {
     console.log(data);
     const proceed = window.confirm("Please Confirm!");
     if (proceed) {
-      fetch(`https://mysterious-brook-12035.herokuapp.com/tab2/${tab2._id}`, {
+      fetch(`https://alluring-perfumes-server.onrender.com/tab2/${tab2._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

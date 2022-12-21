@@ -42,7 +42,7 @@ const CheckoutForm = ({ booking }) => {
 
   useEffect(() => {
     fetch(
-      "https://mysterious-brook-12035.herokuapp.com/create-payment-intent",
+      "https://alluring-perfumes-server.onrender.com/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -113,7 +113,7 @@ const CheckoutForm = ({ booking }) => {
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice("_secret")[0],
       };
-      const url = `https://mysterious-brook-12035.herokuapp.com/orders/pay/${_id}`;
+      const url = `https://alluring-perfumes-server.onrender.com/orders/pay/${_id}`;
       fetch(url, {
         method: "PUT",
         headers: {

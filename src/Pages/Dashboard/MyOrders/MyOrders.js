@@ -52,7 +52,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/${user.email}?page=${page}&&size=${size}`
+      `https://alluring-perfumes-server.onrender.com/orders/${user.email}?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -65,7 +65,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/totalOrders/${user.email}`
+      `https://alluring-perfumes-server.onrender.com/orders/totalOrders/${user.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -79,7 +79,7 @@ const MyOrders = () => {
       "Are you sure that you want to remove this one?"
     );
     if (proceed) {
-      fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
+      fetch(`https://alluring-perfumes-server.onrender.com/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

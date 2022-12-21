@@ -16,7 +16,7 @@ const PurchasePage = () => {
   const status = "Pending";
 
   useEffect(() => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/perfumes/${productId}`)
+    fetch(`https://alluring-perfumes-server.onrender.com/perfumes/${productId}`)
       .then((res) => res.json())
       .then((result) => setProduct(result));
   }, [productId]);
@@ -37,7 +37,7 @@ const PurchasePage = () => {
 
     const proceed = window.confirm("Please confirm to Purchase!");
     if (proceed) {
-      fetch("https://mysterious-brook-12035.herokuapp.com/orders", {
+      fetch("https://alluring-perfumes-server.onrender.com/orders", {
         method: "POST",
         body: formData,
       })

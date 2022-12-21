@@ -23,7 +23,7 @@ const ExplorePerfumes = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/perfumes?page=${pageData}&&size=${dataSize}`
+      `https://alluring-perfumes-server.onrender.com/perfumes?page=${pageData}&&size=${dataSize}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +35,7 @@ const ExplorePerfumes = () => {
   }, [pageData]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/allPerfumes")
+    fetch("https://alluring-perfumes-server.onrender.com/allPerfumes")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

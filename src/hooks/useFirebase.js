@@ -93,7 +93,7 @@ const useFirebase = () => {
   // post to database
   const saveUserToDb = (email, displayName) => {
     const user = { email, displayName };
-    fetch("https://mysterious-brook-12035.herokuapp.com/users", {
+    fetch("https://alluring-perfumes-server.onrender.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -104,7 +104,7 @@ const useFirebase = () => {
 
   // admin getting from database
   useEffect(() => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/users/${user.email}`)
+    fetch(`https://alluring-perfumes-server.onrender.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);

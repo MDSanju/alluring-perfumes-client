@@ -52,7 +52,7 @@ const AddProduct = () => {
 
     const proceed = window.confirm("Please confirm to Add!");
     if (proceed) {
-      fetch("https://mysterious-brook-12035.herokuapp.com/perfumes", {
+      fetch("https://alluring-perfumes-server.onrender.com/perfumes", {
         method: "POST",
         body: formData,
       })

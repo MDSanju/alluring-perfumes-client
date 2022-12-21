@@ -55,7 +55,7 @@ const MakeAdmin = () => {
     const proceed = window.confirm("Please confirm to Make user to Admin!");
     if (proceed) {
       const user = data;
-      fetch("https://mysterious-brook-12035.herokuapp.com/users", {
+      fetch("https://alluring-perfumes-server.onrender.com/users", {
         method: "PUT",
         headers: {
           "content-type": "application/json",

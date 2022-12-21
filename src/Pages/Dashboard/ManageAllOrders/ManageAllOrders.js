@@ -41,7 +41,7 @@ const ManageAllOrders = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders?page=${page}&&size=${size}`
+      `https://alluring-perfumes-server.onrender.com/orders?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -53,7 +53,7 @@ const ManageAllOrders = () => {
   }, [page]);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/allOrders")
+    fetch("https://alluring-perfumes-server.onrender.com/allOrders")
       .then((res) => res.json())
       .then((data) => {
         setAllOrders(data);
@@ -62,7 +62,7 @@ const ManageAllOrders = () => {
   }, []);
 
   const handleUpdateStatus = (id) => {
-    fetch(`https://mysterious-brook-12035.herokuapp.com/orders/${id}`, {
+    fetch(`https://alluring-perfumes-server.onrender.com/orders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

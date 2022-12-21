@@ -12,7 +12,7 @@ const Perfumes = () => {
   const sixPerfumes = perfumes.slice(0, 6);
 
   useEffect(() => {
-    fetch("https://mysterious-brook-12035.herokuapp.com/perfumes")
+    fetch("https://alluring-perfumes-server.onrender.com/perfumes")
       .then((res) => res.json())
       .then((data) => setPerfumes(data.perfumes));
   }, []);

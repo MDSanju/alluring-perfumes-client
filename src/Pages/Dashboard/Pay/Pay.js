@@ -58,7 +58,7 @@ const Pay = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/${user.email}?page=${page}&&size=${size}`
+      `https://alluring-perfumes-server.onrender.com/orders/${user.email}?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -71,7 +71,7 @@ const Pay = () => {
 
   useEffect(() => {
     fetch(
-      `https://mysterious-brook-12035.herokuapp.com/orders/totalOrders/${user.email}`
+      `https://alluring-perfumes-server.onrender.com/orders/totalOrders/${user.email}`
     )
       .then((res) => res.json())
       .then((data) => setTotalOrders(data));

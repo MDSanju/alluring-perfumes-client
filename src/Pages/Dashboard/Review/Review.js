@@ -34,7 +34,7 @@ const Review = () => {
         progress: undefined,
       });
 
-    fetch("https://mysterious-brook-12035.herokuapp.com/reviews", {
+    fetch("https://alluring-perfumes-server.onrender.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
